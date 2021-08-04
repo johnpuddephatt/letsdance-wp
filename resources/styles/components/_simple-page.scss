@@ -1,0 +1,36 @@
+.simple-page {
+  background-color: $brand-blue;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  .container {
+    transition: opacity 4 * $duration $animation-curve-default,
+      transform 4 * $duration $animation-curve-default;
+
+    > * {
+      max-width: $max-line-length;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .back-to-home {
+    position: fixed;
+    top: $spacing;
+    right: $spacing;
+    font-size: ms(3);
+    opacity: 0.9;
+    transition: opacity $duration;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

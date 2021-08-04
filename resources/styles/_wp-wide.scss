@@ -1,0 +1,51 @@
+.alignwide,
+.alignfull,
+[data-align='full'],
+[data-align='wide'] {
+  margin: $spacing calc(50% - 50vw);
+  max-width: 100vw;
+  width: 100vw;
+
+  img {
+    height: auto;
+  }
+}
+
+@media (min-width: $container_max_width) {
+  .alignwide,
+  [data-align='wide'] {
+    margin: $spacing
+      calc(
+        50% - (#{$container_max_width} + (100vw - #{$container_max_width}) / 2) /
+          2
+      );
+    width: calc(
+      #{$container_max_width} + ((100vw - #{$container_max_width}) / 2)
+    );
+  }
+}
+
+.wp-block-cover__inner-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $container_max_width;
+}
+
+.wp-block-columns {
+  max-width: none !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: $spacing 0;
+
+  > * {
+    flex: 1 1 40%;
+    margin-right: $spacing;
+    margin-bottom: $spacing;
+    @media screen and (orientation: landscape) {
+      margin-bottom: 0;
+      flex: 0 1 auto;
+      margin-right: 2 * $spacing;
+    }
+  }
+}

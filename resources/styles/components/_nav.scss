@@ -1,0 +1,56 @@
+.nav {
+  &__toggle {
+    display: none;
+
+    @include portrait() {
+      display: block;
+
+      &:checked {
+        + .nav__menu {
+          pointer-events: auto;
+          transform: translateX(0);
+
+          .container {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+
+  margin: 0;
+  display: flex;
+
+  @include portrait() {
+    pointer-events: none;
+    transform: translateX(-100%);
+    position: fixed;
+    z-index: -1;
+    transition: transform 6 * $duration $animation-curve-default;
+    justify-content: flex-end;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - #{$navbar-height-mobile});
+    background-color: white;
+
+    .container {
+      margin-top: auto;
+      flex-direction: column;
+      transition: transform 8 * $duration $animation-curve-default;
+      transform: translateX(-500%);
+    }
+  }
+
+  .menu-item {
+    display: block;
+    padding: 0 1em;
+    text-transform: lowercase;
+    font-size: ms(-1);
+
+    @include portrait() {
+      font-size: ms(0);
+      padding: 0.5em 0;
+    }
+  }
+}

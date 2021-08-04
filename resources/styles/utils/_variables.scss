@@ -1,0 +1,100 @@
+//--------------------
+// SCSS VARIABLES
+//--------------------
+
+// Grid breakpoints
+//
+// Define the minimum and maximum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$breakpoints: (
+  md: 670px,
+  lg: 1080px,
+  xl: 1400px,
+);
+
+$container-max-width: 900px;
+
+// Z-Index Stack
+//
+// Control the order of layers in the application
+$z-layers: (
+  'modal': 999,
+  'nav': 100,
+  'content-overlay': 30,
+);
+
+// Colors
+//
+// Grayscale.
+
+$gray-darkest: #373a3c;
+$gray-dark: #55595c;
+$gray: #818a91;
+$gray-light: #eceeef;
+$gray-lightest: #f7f7f9;
+
+$color2: #fecdd3;
+
+// Brand Colors
+
+$brand-blue: #4222f0;
+
+// Color Mappings
+
+$bg-color: #fff;
+$text-color: $gray-darkest;
+$brand-color-primary: $brand-blue;
+$brand-color-primary-offset: darken($brand-blue, 6%);
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: 'Tide Sans LD', '-apple-system', 'BlinkMacSystemFont',
+  'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+  'Droid Sans', 'Helvetica Neue', 'sans-serif', 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol';
+$font-family-serif: 'Times New Roman', 'Georgia', 'Times', 'serif';
+$font-family-monospace: 'Menlo', 'Monaco', 'Consolas', 'Andale Mono',
+  'Courier New', monospace;
+$font-family-base: $font-family-sans-serif;
+
+$font-size-root: 100%;
+$font-size-base: 1rem;
+$line-height: 1.625;
+$heading-line-height: 1.2;
+
+$max-line-length: 40rem;
+
+$modularscale: (
+  base: $font-size-base,
+  ratio: 1.2,
+);
+
+// Animation
+//
+// Default easing curves, Transitions, etc
+
+$duration: 200ms;
+
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1);
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1);
+$animation-curve-default: $animation-curve-fast-out-slow-in;
+
+// Misc Shared
+//
+// common shared styles
+
+$spacing: 2rem;
+
+$box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+$box-shadow-top: 0 -5px 5px -5px rgba(0, 0, 0, 0.15);
+
+$box-shadow-elevated: 0 6px 12px 0 rgba(0, 0, 0, 0.1);
+
+$border-radius: 0.25rem;
+
+$navbar-height-mobile: 3.5 * $spacing;
+$navbar-height: 2.5 * $spacing;
