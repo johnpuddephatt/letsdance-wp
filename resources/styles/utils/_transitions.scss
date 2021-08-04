@@ -90,7 +90,7 @@
 
 .zoom-in {
   &-leave,
-  &-once-to,
+  // &-once-to,
   &-enter-to {
     transform: translateX(0);
     position: fixed;
@@ -106,8 +106,8 @@
   }
 }
 
-.zoom-in-enter,
-.zoom-in-once {
+// .zoom-in-once,
+.zoom-in-enter {
   transform: scale(0.5);
 }
 

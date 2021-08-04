@@ -15,7 +15,7 @@
     {!! get_the_post_thumbnail(null, '16by9-xl', ['class' => ""]) !!}
 
     <h1 class="entry-title">
-      {{get_the_excerpt()}}
+      {!! $post->post_excerpt !!}
     </h1>
 
     <p>{!! $title !!}</p>
