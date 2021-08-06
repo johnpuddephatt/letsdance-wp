@@ -25,11 +25,11 @@
     flex: 0 1 calc(50% - #{$spacing/2}) !important;
   }
 
-  // &:hover {
-  //   img {
-  //     transform: scale(1.01) !important;
-  //   }
-  // }
+  &:hover {
+    img {
+      transform: scale(1.01) !important;
+    }
+  }
 
   &.no-transition {
     transition: none;
