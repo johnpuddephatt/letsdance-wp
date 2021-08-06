@@ -8,17 +8,16 @@
 <article @php(post_class())>
   <header class="container container--wide">
 
-    <div>
-      <a href="/projects/">&larr; Back to all projects</a>
+    <div class="project--navigation">
+      <a class="project--back" href="/projects/"><span>&larr;</span> Back to all projects</a>
+      <a class="project--back-to-home" href="/">Back to home</a>
     </div>
 
-    {!! get_the_post_thumbnail(null, '16by9-xl', ['class' => ""]) !!}
+    {!! get_the_post_thumbnail(null, '2by1-xl', ['class' => "project--header-image"]) !!}
 
-    <h1 class="entry-title">
-      {!! $post->post_excerpt !!}
-    </h1>
+    <h1 class="project--excerpt">{!! $post->post_excerpt !!}</h1>
 
-    <p>{!! $title !!}</p>
+    <p class="project--title">{!! $title !!}</p>
 
   </header>
 

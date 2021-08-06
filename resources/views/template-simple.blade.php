@@ -9,7 +9,7 @@
 <div class="simple-page">
   <a class="back-to-home" aria-label="Back"
     href="javascript:barba.history.previous ? barba.go(barba.history.previous.url) : barba.go('/')">×</a>
-  <div class="container">
+  <div class="container page-content">
     {{ the_content() }}
   </div>
 </div>

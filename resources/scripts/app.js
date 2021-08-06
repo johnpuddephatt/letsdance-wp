@@ -9,9 +9,23 @@ var simpleslider = require('simple-slider');
 // // Internal Modules
 const aos = require('./modules/aos');
 
+document.body.classList.remove('no-js');
+
+aos('.project-item', 'in-view');
+
+document.body.addEventListener('keyup', function (e) {
+  if (e.which === 9) {
+    document.body.classList.remove('no-focus-outline');
+  }
+});
+
 window.barba = barba;
 
 barba.use(barbaCss);
+
+barba.hooks.enter(() => {
+  aos('.project-item', 'in-view');
+});
 
 barba.init({
   debug: true,
@@ -45,7 +59,7 @@ barba.init({
       sync: true,
       once() {},
       leave() {},
-      enter() {},
+      beforeEnter() {},
       from: {
         namespace: 'home',
       },
@@ -60,7 +74,7 @@ barba.init({
       leave() {},
       enter() {},
       from: {
-        namespace: 'standard',
+        namespace: ['project', 'standard'],
       },
       to: {
         namespace: 'home',
@@ -82,7 +96,83 @@ barba.init({
       once() {},
       leave() {},
       enter() {},
+      before(e) {
+        if (e.trigger.classList.contains('project-item')) {
+          let img = e.trigger.querySelector('.project-item--image');
+          let imgBounds = img.getBoundingClientRect();
+          let mask = document.createElement('img');
+          mask.src = img.src;
+          mask.classList.add('project-image-mask');
+          mask.style.left = imgBounds.x + 'px';
+          mask.style.top = imgBounds.y + 'px';
+          mask.style.width = imgBounds.width + 'px';
+          mask.style.height = imgBounds.height + 'px';
+          document.body.append(mask);
+        }
+      },
+      beforeEnter() {
+        window.scrollTo(0, 0);
+        let imgBounds = document
+          .querySelector('.project--header-image')
+          .getBoundingClientRect();
+        let mask = document.querySelector('.project-image-mask');
+        mask.style.left = imgBounds.x + 'px';
+        mask.style.top = imgBounds.y + 'px';
+        mask.style.width = imgBounds.width + 'px';
+        mask.style.height = imgBounds.height + 'px';
+        setTimeout(() => {
+          mask.remove();
+        }, 1000);
+      },
+      afterLeave() {
+        // barba.wrapper.scrollTop = 0;
+      },
       to: {
+        namespace: 'project',
+      },
+    },
+    {
+      name: 'zoom-out',
+      sync: true,
+      once() {},
+      leave() {},
+      enter() {},
+      before() {
+        let img = document.querySelector('.project--header-image');
+        let imgBounds = img.getBoundingClientRect();
+        let mask = document.createElement('img');
+        mask.src = img.src;
+        mask.classList.add('project-image-mask');
+        mask.style.left = imgBounds.x + 'px';
+        mask.style.top = imgBounds.y + 'px';
+        mask.style.width = imgBounds.width + 'px';
+        mask.style.height = imgBounds.height + 'px';
+        document.body.append(mask);
+      },
+      beforeEnter(e) {
+        document
+          .querySelectorAll('.project-item')
+          .forEach((item) => item.classList.add('in-view', 'no-transition'));
+
+        let imgBounds = document
+          .querySelector(
+            `a[href*="${e.current.url.path}"] .project-item--image`
+          )
+          .getBoundingClientRect();
+
+        let mask = document.querySelector('.project-image-mask');
+        mask.style.left = imgBounds.x + 'px';
+        mask.style.top = imgBounds.y + 'px';
+        mask.style.width = imgBounds.width + 'px';
+        mask.style.height = imgBounds.height + 'px';
+        setTimeout(() => {
+          mask.remove();
+        }, 1000);
+      },
+      afterLeave() {
+        // barba.wrapper.scrollTop = 0;
+      },
+      from: {
         namespace: 'project',
       },
     },

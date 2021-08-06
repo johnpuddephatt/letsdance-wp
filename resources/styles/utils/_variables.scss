@@ -38,7 +38,8 @@ $color2: #fecdd3;
 
 // Brand Colors
 
-$brand-blue: #4222f0;
+$brand-blue: #3e23e9;
+$brand-cyan: #b0eee1;
 
 // Color Mappings
 
@@ -90,11 +91,11 @@ $animation-curve-default: $animation-curve-fast-out-slow-in;
 $spacing: 2rem;
 
 $box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
-$box-shadow-top: 0 -5px 5px -5px rgba(0, 0, 0, 0.15);
+$box-shadow-top: 0 -10px 5px -5px rgba(0, 0, 0, 0.05);
 
 $box-shadow-elevated: 0 6px 12px 0 rgba(0, 0, 0, 0.1);
 
-$border-radius: 0.25rem;
+$border-radius: 0.2rem;
 
 $navbar-height-mobile: 3.5 * $spacing;
 $navbar-height: 2.5 * $spacing;

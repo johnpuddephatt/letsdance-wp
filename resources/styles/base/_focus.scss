@@ -34,3 +34,8 @@ input:focus {
 a:focus:hover {
   outline: none;
 }
+
+.no-focus-outline a:focus,
+.no-focus-outline button:focus {
+  outline: none;
+}

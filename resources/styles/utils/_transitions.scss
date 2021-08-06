@@ -2,8 +2,7 @@
 .slide-in,
 .slide-out,
 .slide-up,
-.slide-down,
-.zoom-in {
+.slide-down {
   &-leave-active,
   &-once-active,
   &-enter-active {
@@ -88,9 +87,10 @@
   transform: translateY(calc(-100vh + #{$navbar-height}));
 }
 
-.zoom-in {
+.zoom-in,
+.zoom-out {
   &-leave,
-  // &-once-to,
+  &-once-to,
   &-enter-to {
     transform: translateX(0);
     position: fixed;
@@ -98,18 +98,27 @@
     left: 0;
     width: 100%;
     z-index: 999;
+    opacity: 1;
   }
 
   &-enter,
-  &-leave-active {
+  &-once,
+  &-leave-to {
     opacity: 0;
+  }
+
+  &-once-active,
+  &-leave-active {
+    transition: opacity 0.5s $animation-curve-default,
+      transform 0.5s $animation-curve-default;
+  }
+  &-enter-active {
+    transition: opacity 0.5s 0.5s $animation-curve-default,
+      transform 0.5s 0.5s $animation-curve-default;
   }
 }
 
 // .zoom-in-once,
-.zoom-in-enter {
-  transform: scale(0.5);
-}
 
 // .zoom-in-leave-to {
 // transform: translateX(100%);
