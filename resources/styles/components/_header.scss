@@ -72,8 +72,10 @@
   }
 
   .site-strapline {
-    font-size: ms(0);
+    font-size: ms(-1);
     color: $gray;
+    font-weight: 500;
+    text-transform: lowercase;
     line-height: $heading-line-height;
     -webkit-font-smoothing: antialiased;
   }

@@ -14,3 +14,10 @@ namespace App;
 add_filter('excerpt_more', function () {
     return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
 });
+
+add_filter('body_class', function($classes) {
+    $classes[] = 'no-focus-outline';
+    $classes[] = 'no-js';
+    return $classes;
+});
+

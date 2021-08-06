@@ -1,11 +1,17 @@
 {
-    "/scripts/app.js": "/scripts/app.js?id=63c1ba3cfaec7cf867b3",
+    "/scripts/app.js": "/scripts/app.js?id=cdee8da75851fd77b822",
     "/scripts/customizer.js": "/scripts/customizer.js?id=b97c4665ff755f801e37",
     "/scripts/editor.js": "/scripts/editor.js?id=db57d3b74ac65bb40b16",
     "/scripts/manifest.js": "/scripts/manifest.js?id=87302242d7e19ca12a09",
-    "/styles/editor.css": "/styles/editor.css?id=5313c7dcc49e2de6798d",
-    "/styles/app.css": "/styles/app.css?id=4d798fdd3316cce3788f",
+    "/styles/editor.css": "/styles/editor.css?id=4c5e600a4d53ee441d7f",
+    "/styles/app.css": "/styles/app.css?id=76f80fc95309886104e0",
     "/scripts/vendor.js": "/scripts/vendor.js?id=f197a2246341a516e08c",
-    "/fonts/tidesans-500dudette.woff": "/fonts/tidesans-500dudette.woff?id=d7effc0ec49f17c43cf8",
-    "/fonts/tidesans-500dudette.woff2": "/fonts/tidesans-500dudette.woff2?id=93bf29d37f1b69f4c2a6"
+    "/fonts/TideSans-300LilKahuna.woff": "/fonts/TideSans-300LilKahuna.woff?id=f36d167d6e775a6b7a24",
+    "/fonts/TideSans-300LilKahuna.woff2": "/fonts/TideSans-300LilKahuna.woff2?id=fabde326b903094864ae",
+    "/fonts/TideSans-500Dudette.woff": "/fonts/TideSans-500Dudette.woff?id=e986cc9e34bbf7ff2487",
+    "/fonts/TideSans-500Dudette.woff2": "/fonts/TideSans-500Dudette.woff2?id=329bcd1bc3c69c79314a",
+    "/fonts/TideSans-600Bunny.woff": "/fonts/TideSans-600Bunny.woff?id=ccbcc2b7d928530787f5",
+    "/fonts/TideSans-600Bunny.woff2": "/fonts/TideSans-600Bunny.woff2?id=f69d7db87b25cc52beda",
+    "/fonts/TideSans-800Kahuna.woff": "/fonts/TideSans-800Kahuna.woff?id=4eee96f43ebfc387b268",
+    "/fonts/TideSans-800Kahuna.woff2": "/fonts/TideSans-800Kahuna.woff2?id=e01b971c31475e72768f"
 }

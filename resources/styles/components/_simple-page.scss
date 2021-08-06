@@ -1,4 +1,7 @@
 .simple-page {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   background-color: $brand-blue;
   color: white;
   min-height: 100vh;
@@ -23,14 +26,34 @@
 
   .back-to-home {
     position: fixed;
+    line-height: 1;
     top: $spacing;
     right: $spacing;
     font-size: ms(3);
     opacity: 0.9;
     transition: opacity $duration;
 
+    &:focus {
+      outline-color: white;
+    }
+
     &:hover {
       opacity: 1;
+    }
+  }
+
+  .page-content {
+    font-weight: 500;
+
+    h1 {
+      &::before {
+        content: '';
+        width: 6em;
+        height: 0.2em;
+        margin: 1em 0;
+        background-color: white;
+        display: block;
+      }
     }
   }
 }

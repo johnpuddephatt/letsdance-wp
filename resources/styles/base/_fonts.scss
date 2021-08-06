@@ -2,7 +2,34 @@
   font-family: 'Tide Sans LD';
   font-style: normal;
   font-display: swap;
-  font-weight: 500;
-  src: url('../fonts/tidesans-500dudette.woff2') format('woff2'),
-    url('../fonts/tidesans-500dudette.woff') format('woff');
+  font-weight: 400;
+  src: url('../fonts/tidesans-300LilKahuna.woff2') format('woff2'),
+    url('../fonts/tidesans-300LilKahuna.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'Tide Sans LD';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('../fonts/tidesans-500Dudette.woff2') format('woff2'),
+    url('../fonts/tidesans-500Dudette.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Tide Sans LD';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('../fonts/tidesans-600Bunny.woff2') format('woff2'),
+    url('../fonts/tidesans-600Bunny.woff') format('woff');
+}
+
+// @font-face {
+//   font-family: 'Tide Sans LD';
+//   font-style: normal;
+//   font-display: swap;
+//   font-weight: 800;
+//   src: url('../fonts/tidesans-800Kahuna.woff2') format('woff2'),
+//     url('../fonts/tidesans-800Kahuna.woff') format('woff');
+// }

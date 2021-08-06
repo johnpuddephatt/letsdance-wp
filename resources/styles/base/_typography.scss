@@ -1,6 +1,9 @@
 @use "sass:math";
 
 html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01rem;
   font-size: math.div($font-size-root, map-get($modularscale, ratio));
   @include mq(lg) {
     font-size: $font-size-root;
@@ -22,18 +25,9 @@ h6 {
 
 h1 {
   font-size: ms(2);
-  font-weight: 400;
+  font-weight: 700;
   text-rendering: optimizeLegibility;
   margin-bottom: 2em;
-
-  &::before {
-    content: '';
-    width: 6em;
-    height: 0.2em;
-    margin: 1em 0;
-    background-color: white;
-    display: block;
-  }
 }
 
 h2 {
