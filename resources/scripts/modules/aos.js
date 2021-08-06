@@ -1,9 +1,11 @@
-"use strict";
+'use strict';
 
-module.exports = function (scrollItemSelector,scrollItemVisibleClass) {
-
-  if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
-
+module.exports = function (scrollItemSelector, scrollItemVisibleClass) {
+  if (
+    'IntersectionObserver' in window &&
+    'IntersectionObserverEntry' in window &&
+    'intersectionRatio' in window.IntersectionObserverEntry.prototype
+  ) {
     document.body.classList.add('aos');
 
     var options = {
@@ -12,22 +14,19 @@ module.exports = function (scrollItemSelector,scrollItemVisibleClass) {
 
     var images = document.querySelectorAll(scrollItemSelector);
 
-    var callback =  function(entries, observer) {
-      entries.forEach(entry => {
-        console.log(entry.intersectionRatio);
-        if(entry.intersectionRatio >= 0.25) {
+    var callback = function (entries, observer) {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio >= 0.25) {
           entry.target.classList.add(scrollItemVisibleClass);
           observer.unobserve(entry.target);
         }
-
       });
-    }
+    };
 
     var observer = new IntersectionObserver(callback, options);
 
-    images.forEach(image => {
+    images.forEach((image) => {
       observer.observe(image);
     });
-
   }
-}
+};

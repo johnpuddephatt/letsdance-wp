@@ -33,7 +33,7 @@ barba.init({
     {
       namespace: 'home',
       beforeEnter() {
-        startSlideshow();
+        launchSlideshowWhenImagesLoaded(!barba.history.previous);
       },
     },
   ],
@@ -192,41 +192,46 @@ function startSlideshow() {
   });
 }
 
-if (document.getElementById('hero-image-slider')) {
-  document.addEventListener('scroll', function () {
-    var scrolled = false;
-    if (document.documentElement.scrollTop < 10) {
-      document.documentElement.classList.remove('scrolled');
-      scrolled = false;
-    } else if (!scrolled) {
-      document.documentElement.classList.add('scrolled');
-      scrolled = true;
-    }
-  });
+// if (document.getElementById('hero-image-slider')) {
+//   document.addEventListener('DOMContentLoaded', function () {
+//     launchSlideshowWhenImagesLoaded(true);
+//   });
+// }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var sliderImagesLoaded = 0;
-    var sliderImages = document.querySelectorAll('#hero-image-slider img');
-    var ldLoaded = false;
+let launchSlideshowWhenImagesLoaded = function (withLoadingScreen = false) {
+  var sliderImagesLoaded = 0;
+  let sliderImages = document.querySelectorAll('#hero-image-slider img');
+  let ldLoaded = false;
 
-    function imageLoaded() {
-      sliderImagesLoaded++;
-      if (sliderImagesLoaded >= sliderImages.length && ldLoaded == false) {
-        ldLoaded = true;
-        document.documentElement.scrollTop = -100;
+  let checkIfAllLoaded = function () {
+    if (sliderImagesLoaded >= sliderImages.length && ldLoaded == false) {
+      ldLoaded = true;
+      if (withLoadingScreen) {
         setTimeout(() => {
           document.documentElement.classList.remove('js-loading');
-          document.documentElement.scrollTop = -100;
+          setTimeout(() => {
+            startSlideshow();
+          }, 1200);
         }, 2000);
+      } else {
+        startSlideshow();
       }
     }
-    document.documentElement.classList.add('js-loading');
-    sliderImages.forEach((image) => {
-      image.addEventListener('load', imageLoaded(image));
-    });
-  });
-}
+  };
 
-document.addEventListener('DOMContentLoaded', function () {
-  aos('[data-aos]', 'aos-animate');
-});
+  if (withLoadingScreen) {
+    document.documentElement.classList.add('js-loading');
+  }
+
+  sliderImages.forEach((image) => {
+    if (image.complete) {
+      sliderImagesLoaded++;
+      checkIfAllLoaded();
+    } else {
+      image.addEventListener('load', (image) => {
+        sliderImagesLoaded++;
+        checkIfAllLoaded();
+      });
+    }
+  });
+};
