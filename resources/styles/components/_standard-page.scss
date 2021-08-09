@@ -2,3 +2,20 @@
   background-color: #fff;
   min-height: 100vh;
 }
+
+.page-header {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-title {
+  font-size: ms(6);
+  margin: 4 * $spacing 0 2 * $spacing;
+}
+
+.page-content {
+  width: 100%;
+  margin: 0 auto 4 * $spacing;
+  max-width: $container-max-width;
+}

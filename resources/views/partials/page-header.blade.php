@@ -1,3 +1,5 @@
+@include('partials.edit-link')
+
 <div class="page-header">
-  <h1>{!! $title !!}</h1>
+  <h1 class="page-title">{!! $title !!}</h1>
 </div>
