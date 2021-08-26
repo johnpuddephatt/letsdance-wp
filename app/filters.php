@@ -21,3 +21,11 @@ add_filter('body_class', function($classes) {
     return $classes;
 });
 
+
+// add_filter( 'wp_calculate_image_sizes', function() {
+
+
+//     return 'foo';
+ 
+// }, 10, 6 );
+

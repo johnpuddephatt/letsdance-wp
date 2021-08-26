@@ -8,7 +8,7 @@
       <a class="project--back-to-home" href="/">Back to home</a>
     </div>
 
-    {!! get_the_post_thumbnail(null, '2by1-xl', ['class' => "project--header-image"]) !!}
+    {!! get_the_post_thumbnail(null, '2by1-xxl', ['class' => "project--header-image"]) !!}
 
     <h1 class="project--excerpt">{!! $post->post_excerpt !!}</h1>
 

@@ -52,7 +52,8 @@ add_editor_style('public/styles/editor.css');
  * @return void
  */
 add_action('after_setup_theme', function () {
-
+    
+    add_image_size( '16by9-xxl', 2000, 1125, true );
     add_image_size( '16by9-xl', 1600, 900, true );
     add_image_size( '16by9-l', 1200, 675, true );
     add_image_size( '16by9', 800, 450, true );
