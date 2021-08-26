@@ -88,16 +88,11 @@ add_action('after_setup_theme', function () {
     add_image_size( 'square-xs', 320, 320, true );
 
     add_filter( 'image_size_names_choose', function($sizes){
-        // return array_merge( $sizes, array(
-        //     'square-xl' => __( 'Square' ),
-        //     '16by9-xl' => __( '16:9' ),
-        //     '3by1-xl' => __( 'Wide' )
-        // ) );
-        return array(
-            'square-l' => __( 'Square' ),
-            '16by9-xl' => __( '16:9' ),
+        return array_merge( $sizes, array(
+            'square-xl' => __( 'Square' ),
+            '16by9-xxl' => __( '16:9' ),
             '3by1-xl' => __( 'Wide' )
-        );
+        ));
     });
 
     show_admin_bar(false);
