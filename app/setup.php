@@ -59,7 +59,8 @@ add_action('after_setup_theme', function () {
     add_image_size( '16by9', 800, 450, true );
     add_image_size( '16by9-s', 400, 225, true );
     add_image_size( '16by9-xs', 240, 135, true );
-
+    
+    add_image_size( '2by1-xl', 2000, 1000, true );
     add_image_size( '2by1-xl', 1600, 800, true );
     add_image_size( '2by1-l', 1200, 600, true );
     add_image_size( '2by1', 800, 400, true );
