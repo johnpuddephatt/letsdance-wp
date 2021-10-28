@@ -47,6 +47,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            blockquote: false,
             h1: {
               fontFamily: theme('fontFamily.serif').join(', '),
               fontWeight: 400,

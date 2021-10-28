@@ -3,9 +3,10 @@
     <div class="transition-transform transform group-hover:scale-101">
         {!! get_the_post_thumbnail($project->ID, '2by1', ['class' => "block rounded border border-gray-50"]) !!}
     </div>
-    <p class="mt-8 mb-4 font-serif text-xl antialiased leading-none text-gray-700 lg:text-3xl">{!!
+    <p class="mt-8 mb-4 font-serif text-xl antialiased leading-none text-gray-800 lg:text-3xl">{!!
         $project->post_excerpt
         !!}
     </p>
-    <h3 class="text-sm leading-none text-black lg:text-lg">{!! $project->post_title !!}</h3>
+    <h3 class="text-sm antialiased font-semibold leading-none text-gray-700 lg:text-lg">{!! $project->post_title !!}
+    </h3>
 </a>

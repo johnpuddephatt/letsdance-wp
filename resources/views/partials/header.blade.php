@@ -6,7 +6,7 @@
         href="{{ home_url('/') }}">
         {{ $siteName }}
       </a>
-      <span class="hidden text-lg antialiased font-semibold leading-none text-gray-500 lowercase lg:inline">{{
+      <span class="hidden text-lg antialiased font-semibold leading-none text-gray-600 lowercase lg:inline">{{
         get_bloginfo('description')
         }}</span>
     </div>
@@ -15,7 +15,7 @@
       @if (has_nav_menu('primary_navigation'))
       {!! wp_nav_menu([
       'theme_location' => 'primary_navigation',
-      'menu_class' => 'text-gray-800 gap-4 text-gray-500 antialiased lg:text-black font-bold lg:text-lg lowercase m-0
+      'menu_class' => 'text-gray-600 gap-4 antialiased lg:text-gray-800 font-bold lg:text-lg lowercase m-0
       flex
       z-10
       flex-row content-end',
