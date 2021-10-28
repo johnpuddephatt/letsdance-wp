@@ -4,7 +4,7 @@ import domReady from '@wordpress/dom-ready';
 import { unregisterBlockStyle, registerBlockStyle } from '@wordpress/blocks';
 
 domReady(() => {
-  unregisterBlockStyle('core/button', 'outline');
+  unregisterBlockStyle('core/image', 'rounded');
 
   // registerBlockStyle('core/button', {
   //   name: 'outline',
