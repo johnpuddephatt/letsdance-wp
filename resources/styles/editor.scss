@@ -1,22 +1,25 @@
-@use "sass:math";
+@import 'global';
 
-// ---------------------------------
-// MASTER STYLESHEET INDEX
-// ---------------------------------
+body {
+  @apply prose;
+  max-width: none !important;
+  @apply font-sans text-gray-700 leading-normal;
+}
 
-//--------------------
-// UTILITIES
-//--------------------
-//
-@import 'utils/functions';
-@import 'utils/variables';
-@import 'utils/mixins';
-@import 'utils/transitions';
-@import 'utils/animations';
+.edit-post-visual-editor__post-title-wrapper,
+.wp-block-post-excerpt__more-text {
+  display: none;
+}
 
-@import '~modularscale-sass/stylesheets/modularscale';
+.wp-block-post-featured-image {
+  padding-top: 50%;
+  @apply relative bg-gray-100;
 
-@import 'base/fonts';
-@import 'base/typography';
-@import 'base/reboot';
-@import 'wp-wide';
+  .block-editor-media-placeholder {
+    @apply absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-lg;
+  }
+
+  img {
+    @apply inset-0 h-full w-full absolute object-cover object-center;
+  }
+}

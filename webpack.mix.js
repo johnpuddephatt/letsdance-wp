@@ -12,7 +12,7 @@ require('@tinypixelco/laravel-mix-wp-blocks');
  |
  */
 
-mix.setPublicPath('./public').browserSync('letsdance-wp.test');
+mix.setPublicPath('./public').browserSync('letsdance.test');
 
 mix
   .sass('resources/styles/app.scss', 'styles')
@@ -26,7 +26,7 @@ mix
   .js('resources/scripts/app.js', 'scripts')
   .js('resources/scripts/customizer.js', 'scripts')
   .blocks('resources/scripts/editor.js', 'scripts')
-  .autoload({ jquery: ['$', 'window.jQuery'] })
+  // .autoload({ jquery: ['$', 'window.jQuery'] })
   .extract();
 
 mix

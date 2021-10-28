@@ -1,0 +1,165 @@
+$duration: 750ms;
+
+// .fade,
+.slide-left,
+.slide-right,
+.slide-up,
+.slide-down,
+.project-open,
+.project-close {
+  &-leave-active,
+  &-once-active,
+  &-enter-active {
+    @apply transition duration-[#{$duration}];
+  }
+}
+
+/*
+ *
+ * SLIDE
+ *
+ */
+
+.slide-left,
+.slide-right,
+.slide-up,
+.slide-down {
+  &-leave-to,
+  &-once-to,
+  &-enter-to {
+    @apply transform translate-x-0 fixed top-0 left-0 w-full transition duration-[#{$duration }];
+  }
+
+  &-enter {
+    position: fixed;
+    z-index: -999;
+  }
+}
+
+/*
+ * Left and Right
+ */
+
+.slide-right-enter {
+  @apply transform -translate-x-full;
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+  @apply delay-500 #{!important};
+}
+
+.slide-right-leave-to {
+  @apply transform translate-x-full;
+}
+
+.slide-left-leave-to {
+  @apply transform -translate-x-full;
+}
+
+.slide-left-enter {
+  @apply transform translate-x-full;
+}
+
+// Inner container
+
+.slide-right-enter-active {
+  .container {
+    @apply transform duration-0 delay-0  translate-y-20 opacity-0 #{!important};
+  }
+}
+
+.slide-left-leave-to {
+  .container {
+    @apply transform translate-y-20 opacity-0 duration-300 #{!important};
+  }
+}
+
+/*
+ *
+ * Up & Down
+ *
+ */
+
+.slide-up-enter,
+.slide-down-leave-to {
+  transform: translateY(calc(100vh - 5rem));
+}
+
+.slide-down-enter,
+.slide-up-leave-to {
+  transform: translateY(calc(-100vh + 5rem));
+}
+
+// .project-open,
+// .project-close {
+//   &-leave,
+//   &-enter-to {
+//     @apply transform translate-x-0 fixed z-[-9] top-0 left-0 pointer-events-none w-full opacity-100;
+//   }
+
+//   &-once-to,
+//   &-enter-to {
+//   }
+
+//   &-enter {
+//     transition-duration: 0ms !important;
+//     transition-delay: 0ms !important;
+//     opacity: 0 !important;
+//     width: 100%;
+//     top: 0;
+//     left: 0;
+//     position: fixed;
+//     z-index: -999 !important;
+//   }
+
+//   &-enter,
+//   &-leave-to {
+//     @apply opacity-0 pointer-events-none;
+//   }
+
+//   // &-enter-active {
+//   //   @apply delay-[#{$duration}];
+//   // }
+// }
+
+/*
+ *
+ * SLIDE
+ *
+ */
+
+.project-open,
+.project-close {
+  &-leave-to,
+  &-enter-to {
+    @apply transform translate-x-0 fixed top-0 left-0 w-full transition duration-[#{$duration }];
+  }
+
+  &-enter {
+    top: 0;
+    position: fixed;
+    z-index: -999;
+  }
+}
+
+// .project-close-enter-active,
+// .project-close-leave-active {
+//   @apply delay-200 #{!important};
+// }
+
+.project-close-leave-to {
+  @apply transform translate-x-full;
+}
+
+.project-open-leave-to {
+  @apply transform -translate-x-full;
+}
+
+.project-open-enter {
+  @apply transform translate-x-full left-0 right-0;
+}
+
+.project-close-enter {
+  @apply transform -translate-x-full left-0 right-0;
+}

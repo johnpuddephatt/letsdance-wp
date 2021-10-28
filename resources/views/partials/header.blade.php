@@ -1,22 +1,26 @@
-<header class="header" role="banner">
-  <div class="container container--wide header__inner">
-    <div class="header__left">
-      <a class="site-title" href="{{ home_url('/') }}">
+<header class="z-40 transition-transform delay-75 transform bg-white border-t border-gray-50"
+  :class="{'translate-y-full transition-none' : $store.siteLoading}" role="banner">
+  <div class="container flex items-center justify-between h-20 max-w-none">
+    <div>
+      <a class="block mr-3 text-xl antialiased font-bold leading-none text-gray-800 no-underline lg:text-2xl md:inline"
+        href="{{ home_url('/') }}">
         {{ $siteName }}
       </a>
-      <span class="site-strapline">{{ get_bloginfo('description') }}</span>
+      <span class="hidden text-lg antialiased font-semibold leading-none text-gray-500 lowercase lg:inline">{{
+        get_bloginfo('description')
+        }}</span>
     </div>
-    <div class="header__right">
+    <div>
 
-      <input id="nav__toggle" class="nav__toggle" type="checkbox" />
-      <label for="nav__toggle" class="nav__toggle__icon">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
       @if (has_nav_menu('primary_navigation'))
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
-      @endif </div>
+      {!! wp_nav_menu([
+      'theme_location' => 'primary_navigation',
+      'menu_class' => 'text-gray-800 gap-4 text-gray-500 antialiased lg:text-black font-bold lg:text-lg lowercase m-0
+      flex
+      z-10
+      flex-row content-end',
+      'echo' => false]) !!}
+      @endif
+    </div>
   </div>
 </header>

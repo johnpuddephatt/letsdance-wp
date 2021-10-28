@@ -1,56 +1,42 @@
-@use "sass:math";
+@import 'global';
+@import 'gutenberg';
+@import 'animations';
+@import 'transitions';
 
-// ---------------------------------
-// MASTER STYLESHEET INDEX
-// ---------------------------------
+#hero-image-slider picture {
+  position: static !important;
+}
 
-//--------------------
-// UTILITIES
-//--------------------
-//
-@import 'utils/functions';
-@import 'utils/variables';
-@import 'utils/mixins';
-@import 'utils/transitions';
-@import 'utils/animations';
+.underline-thin {
+  text-decoration-thickness: 1px;
+}
 
-@import '~modularscale-sass/stylesheets/modularscale';
+.no-focus-outline a:focus {
+  outline: none !important;
+}
+.menu-item {
+  @apply block py-4 lg:py-0 lg:px-4;
+}
 
-//--------------------
-// BASE MODULES
-// partials with global scope
-//--------------------
+.hard-gradient {
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-from) 50%,
+    var(--tw-gradient-to) 50%, var(--tw-gradient-to);
+}
 
-@import 'base/fonts';
-@import 'base/normalize';
-@import 'base/reboot';
-@import 'base/layout';
-@import 'base/typography';
-@import 'base/focus';
-@import 'base/utilities';
-@import 'base/screenreader';
-@import 'base/animation';
+#nav__toggle:checked + div ul {
+  @apply translate-x-0 #{!important};
+}
 
-// --------------------
-// COMPONENTS
-// partials with local scope to a component
-// --------------------
+.project-item {
+  &:nth-child(2n) {
+    transition-delay: 400ms;
+  }
 
-@import 'components/header';
-@import 'components/nav';
-@import 'components/footer';
-@import 'components/icon';
+  &:nth-child(4n) {
+    transition-delay: 600ms;
+  }
 
-@import 'components/hero';
-@import 'components/loading';
-
-@import 'components/projects';
-
-@import 'components/nav';
-@import 'components/simple-page';
-@import 'components/standard-page';
-@import 'components/project-page';
-
-@import 'components/edit-link';
-
-@import 'wp-wide';
+  &:nth-child(4n - 1) {
+    transition-delay: 800ms;
+  }
+}

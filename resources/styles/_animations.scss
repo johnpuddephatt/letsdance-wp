@@ -1,3 +1,10 @@
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01s !important;
+    transition-duration: 0.01s !important;
+  }
+}
+
 @keyframes huerotation {
   0% {
     filter: hue-rotate(0deg);

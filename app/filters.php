@@ -16,16 +16,15 @@ add_filter('excerpt_more', function () {
 });
 
 add_filter('body_class', function($classes) {
-    $classes[] = 'no-focus-outline';
-    $classes[] = 'no-js';
-    return $classes;
+    return array_merge($classes, [
+        'no-focus-outline',
+        'overflow-x-hidden',
+        'min-h-screen',
+        'relative'
+    ]);
 });
 
-
 // add_filter( 'wp_calculate_image_sizes', function() {
-
-
 //     return 'foo';
- 
 // }, 10, 6 );
 

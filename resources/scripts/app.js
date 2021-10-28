@@ -1,17 +1,20 @@
 // External modules
 import barba from '@barba/core';
 import barbaCss from '@barba/css';
-
-require('intersection-observer');
-var simpleslider = require('simple-slider');
-// // const imagesLoaded = require('imagesLoaded');
-
+import Alpine from 'alpinejs';
 // // Internal Modules
-const aos = require('./modules/aos');
+import aos from './modules/aos';
+import slideShow from './modules/slideshow';
+import imageMask from './modules/imageMask';
+import fadeInProjectImages from './modules/fadeInProjectImages';
 
-document.body.classList.remove('no-js');
+aos(document.querySelectorAll('[data-aos]'));
 
-aos('.project-item', 'in-view');
+window.Alpine = Alpine;
+Alpine.start();
+
+window.barba = barba;
+barba.use(barbaCss);
 
 document.body.addEventListener('keyup', function (e) {
   if (e.which === 9) {
@@ -19,33 +22,30 @@ document.body.addEventListener('keyup', function (e) {
   }
 });
 
-window.barba = barba;
-
-barba.use(barbaCss);
-
-barba.hooks.enter(() => {
-  aos('.project-item', 'in-view');
+barba.hooks.afterLeave(() => {
+  if (barba.history.previous) {
+    // aos();
+  }
 });
 
 barba.init({
-  debug: true,
+  debug: false,
   views: [
     {
       namespace: 'home',
       beforeEnter() {
-        launchSlideshowWhenImagesLoaded(!barba.history.previous);
+        slideShow({
+          withLoadingScreen: !barba.history.previous,
+        });
       },
     },
   ],
   transitions: [
     {
       name: 'fade',
-      once() {},
-      leave() {},
-      enter() {},
     },
     {
-      name: 'slide-in',
+      name: 'slide-right',
       sync: true,
       once() {},
       leave() {},
@@ -81,7 +81,7 @@ barba.init({
       },
     },
     {
-      name: 'slide-out',
+      name: 'slide-left',
       sync: true,
       once() {},
       leave() {},
@@ -91,38 +91,37 @@ barba.init({
       },
     },
     {
-      name: 'zoom-in',
+      name: 'project-open',
       sync: true,
       once() {},
       leave() {},
       enter() {},
+      beforeOnce() {
+        fadeInProjectImages();
+      },
       before(e) {
-        if (e.trigger.classList.contains('project-item')) {
-          let img = e.trigger.querySelector('.project-item--image');
-          let imgBounds = img.getBoundingClientRect();
-          let mask = document.createElement('img');
-          mask.src = img.src;
-          mask.classList.add('project-image-mask');
-          mask.style.left = imgBounds.x + 'px';
-          mask.style.top = imgBounds.y + 'px';
-          mask.style.width = imgBounds.width + 'px';
-          mask.style.height = imgBounds.height + 'px';
-          document.body.append(mask);
+        var imageElement =
+          e.trigger.classList && e.trigger.classList.contains('project-item')
+            ? e.trigger.querySelector('img')
+            : document.querySelector(`a[href*="${e.next.url.href}"] img`);
+
+        if (imageElement) {
+          imageMask({
+            target: imageElement,
+            mode: 'create',
+            transition: 'project-open',
+          });
         }
       },
       beforeEnter() {
-        window.scrollTo(0, 0);
-        let imgBounds = document
-          .querySelector('.project--header-image')
-          .getBoundingClientRect();
-        let mask = document.querySelector('.project-image-mask');
-        mask.style.left = imgBounds.x + 'px';
-        mask.style.top = imgBounds.y + 'px';
-        mask.style.width = imgBounds.width + 'px';
-        mask.style.height = imgBounds.height + 'px';
-        setTimeout(() => {
-          mask.remove();
-        }, 1000);
+        // window.scrollTo(0, 0);
+        imageMask({
+          target: document.querySelector('.project-template--featured-image'),
+          mode: 'update',
+          transition: 'project-open',
+        });
+
+        fadeInProjectImages();
       },
       afterLeave() {
         // barba.wrapper.scrollTop = 0;
@@ -132,42 +131,26 @@ barba.init({
       },
     },
     {
-      name: 'zoom-out',
+      name: 'project-close',
       sync: true,
       once() {},
       leave() {},
       enter() {},
       before() {
-        let img = document.querySelector('.project--header-image');
-        let imgBounds = img.getBoundingClientRect();
-        let mask = document.createElement('img');
-        mask.src = img.src;
-        mask.classList.add('project-image-mask');
-        mask.style.left = imgBounds.x + 'px';
-        mask.style.top = imgBounds.y + 'px';
-        mask.style.width = imgBounds.width + 'px';
-        mask.style.height = imgBounds.height + 'px';
-        document.body.append(mask);
+        imageMask({
+          target: document.querySelector('.project-template--featured-image'),
+          mode: 'create',
+          transition: 'project-close',
+        });
       },
       beforeEnter(e) {
-        document
-          .querySelectorAll('.project-item')
-          .forEach((item) => item.classList.add('in-view', 'no-transition'));
-
-        let imgBounds = document
-          .querySelector(
-            `a[href*="${e.current.url.path}"] .project-item--image`
-          )
-          .getBoundingClientRect();
-
-        let mask = document.querySelector('.project-image-mask');
-        mask.style.left = imgBounds.x + 'px';
-        mask.style.top = imgBounds.y + 'px';
-        mask.style.width = imgBounds.width + 'px';
-        mask.style.height = imgBounds.height + 'px';
-        setTimeout(() => {
-          mask.remove();
-        }, 1000);
+        imageMask({
+          target: document.querySelector(
+            `a[href*="${e.current.url.path}"] img`
+          ),
+          mode: 'update',
+          transition: 'project-close',
+        });
       },
       afterLeave() {
         // barba.wrapper.scrollTop = 0;
@@ -178,60 +161,3 @@ barba.init({
     },
   ],
 });
-
-function startSlideshow() {
-  simpleslider.getSlider({
-    container: document.getElementById('hero-image-slider'),
-    prop: 'opacity',
-    init: 0,
-    show: 1,
-    end: 0,
-    unit: '',
-    duration: 0.6,
-    delay: 2,
-  });
-}
-
-// if (document.getElementById('hero-image-slider')) {
-//   document.addEventListener('DOMContentLoaded', function () {
-//     launchSlideshowWhenImagesLoaded(true);
-//   });
-// }
-
-let launchSlideshowWhenImagesLoaded = function (withLoadingScreen = false) {
-  var sliderImagesLoaded = 0;
-  let sliderImages = document.querySelectorAll('#hero-image-slider img');
-  let ldLoaded = false;
-
-  let checkIfAllLoaded = function () {
-    if (sliderImagesLoaded >= sliderImages.length && ldLoaded == false) {
-      ldLoaded = true;
-      if (withLoadingScreen) {
-        setTimeout(() => {
-          document.documentElement.classList.remove('js-loading');
-          setTimeout(() => {
-            startSlideshow();
-          }, 1200);
-        }, 2000);
-      } else {
-        startSlideshow();
-      }
-    }
-  };
-
-  if (withLoadingScreen) {
-    document.documentElement.classList.add('js-loading');
-  }
-
-  sliderImages.forEach((image) => {
-    if (image.complete) {
-      sliderImagesLoaded++;
-      checkIfAllLoaded();
-    } else {
-      image.addEventListener('load', (image) => {
-        sliderImagesLoaded++;
-        checkIfAllLoaded();
-      });
-    }
-  });
-};

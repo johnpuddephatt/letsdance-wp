@@ -1,32 +1,51 @@
 'use strict';
 
-module.exports = function (scrollItemSelector, scrollItemVisibleClass) {
+export default function (elems) {
   if (
     'IntersectionObserver' in window &&
     'IntersectionObserverEntry' in window &&
     'intersectionRatio' in window.IntersectionObserverEntry.prototype
   ) {
-    document.body.classList.add('aos');
-
     var options = {
-      threshold: [0.25],
+      threshold: [0.1],
     };
 
-    var images = document.querySelectorAll(scrollItemSelector);
-
-    var callback = function (entries, observer) {
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio >= 0.25) {
-          entry.target.classList.add(scrollItemVisibleClass);
-          observer.unobserve(entry.target);
+    var callback = function (elements, observer) {
+      elements.forEach((elem) => {
+        if (
+          elem.intersectionRatio >=
+          (elem.target.dataset['aos-ratio'] ?? options.threshold)
+        ) {
+          elem.target.classList.remove(
+            ...elem.target.dataset.aosClass.trim().split(' ')
+          );
+          observer.unobserve(elem.target);
         }
       });
     };
 
+    let fadeIn = function (element) {
+      element.classList.add(
+        'transform',
+        '!delay-0',
+        '!duration-0',
+        ...element.dataset.aosClass.trim().split(' ')
+      );
+      setTimeout(() => {
+        element.classList.remove('!duration-0', '!delay-0');
+        observer.observe(element);
+      }, 150);
+    };
+
     var observer = new IntersectionObserver(callback, options);
 
-    images.forEach((image) => {
-      observer.observe(image);
-    });
+    if (elems instanceof NodeList) {
+      elems.forEach((element) => {
+        console.log('fade in...');
+        fadeIn(element);
+      });
+    } else {
+      fadeIn(elems);
+    }
   }
-};
+}
