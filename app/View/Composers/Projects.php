@@ -25,7 +25,8 @@ class Projects extends Composer
         return [
             'projects' => get_posts([
                 'post_type' => 'project',
-                'numberposts' => -1
+                'numberposts' => -1,
+                'orderby' => 'menu_order'
             ]),
         ];
     }
