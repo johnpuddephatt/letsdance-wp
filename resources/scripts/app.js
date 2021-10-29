@@ -93,7 +93,14 @@ barba.init({
     {
       name: 'project-open',
       sync: true,
-      once() {},
+      once() {
+        document.querySelectorAll('.is-type-video').forEach((elem) => {
+          elem.classList.add('has-play-button');
+          elem.addEventListener('click', () => {
+            elem.classList.remove('has-play-button');
+          });
+        });
+      },
       leave() {},
       enter() {},
       beforeOnce() {
