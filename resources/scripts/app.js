@@ -99,8 +99,11 @@ barba.init({
       beforeOnce() {
         document.querySelectorAll('.is-type-video').forEach((elem) => {
           elem.classList.add('has-play-button');
-          elem.querySelector('iframe').addEventListener('click', () => {
-            elem.classList.remove('has-play-button');
+          window.addEventListener('blur', function () {
+            console.log('blur', document.activeElement);
+            if (document.activeElement == elem.querySelector('iframe')) {
+              elem.classList.remove('has-play-button');
+            }
           });
         });
         fadeInProjectImages();
@@ -131,8 +134,10 @@ barba.init({
 
         document.querySelectorAll('.is-type-video').forEach((elem) => {
           elem.classList.add('has-play-button');
-          elem.querySelector('iframe').addEventListener('click', () => {
-            elem.classList.remove('has-play-button');
+          window.addEventListener('blur', function () {
+            if (document.activeElement == elem.querySelector('iframe')) {
+              elem.classList.remove('has-play-button');
+            }
           });
         });
       },

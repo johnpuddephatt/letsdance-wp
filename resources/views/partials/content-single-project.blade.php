@@ -12,7 +12,10 @@
   </header>
 
   <div class="container container--wide">
-    {!! get_the_post_thumbnail(null, '2by1', ['class' => "project-template--featured-image"]) !!}
+    {!! get_the_post_thumbnail(null, '2by1', [
+    'class' => "project-template--featured-image",
+    'sizes' => '(max-width: 1024px) 100vw, 1280px'
+    ]) !!}
   </div>
 
   <div class="container">

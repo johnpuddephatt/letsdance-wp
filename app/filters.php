@@ -41,4 +41,5 @@ add_filter( 'the_content', function ( $content ) {
     if ( is_singular() && in_the_loop() && is_main_query() ) {
         return preg_replace('#https://player\.vimeo\.com/video/(\d+)\?#i', 'https://player.vimeo.com/video/$1?color=bdece1&title=0&byline=0&portrait=0&', $content);
     }
+    return $content;
 }, 99);
