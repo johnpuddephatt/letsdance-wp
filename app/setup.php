@@ -348,13 +348,3 @@ function create_project_post_type()
 }
 
 add_action('init', 'App\create_project_post_type');
-
-
-
-
-add_filter( 'the_content', function ( $content ) {
-    if ( is_singular() && in_the_loop() && is_main_query() ) {
-        $content = str_replace('<!-- wp:post-featured-image {"align":"wide","className":"project-template\u002d\u002dfeatured-image","lock":{"remove":true,"move":true}} /-->', '', $content);
-    }
-    return $content;
-}, 1);
