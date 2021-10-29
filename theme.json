@@ -33,6 +33,11 @@
           "name": "Dark Gray"
         },
         {
+          "slug": "medium-gray",
+          "color": "#9CA3AF",
+          "name": "Medium Gray"
+        },
+        {
           "slug": "gray",
           "color": "#e0e0df",
           "name": "Gray"
