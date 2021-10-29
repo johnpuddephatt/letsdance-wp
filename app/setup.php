@@ -110,7 +110,9 @@ add_action('after_setup_theme', function ()
         return array_merge($sizes, array(
             'square-xl' => __('Square') ,
             '16by9-xxl' => __('16:9') ,
-            '3by1-xl' => __('Wide')
+            '3by1-xl' => __('3:1'),
+            '2by1-xl' => __('3:1'),
+            '4by3-xl' => __('4:3')
         ));
     });
 
