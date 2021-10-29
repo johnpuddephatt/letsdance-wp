@@ -3,6 +3,10 @@
 @import 'animations';
 @import 'transitions';
 
+.h-screen\+1 {
+  height: calc(100vh + 1px);
+}
+
 #hero-image-slider picture {
   position: static !important;
 }
@@ -39,4 +43,8 @@
   &:nth-child(4n - 1) {
     transition-delay: 800ms;
   }
+}
+
+.has-play-button {
+  background-image: url();
 }

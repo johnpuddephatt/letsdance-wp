@@ -35,6 +35,8 @@ barba.init({
     {
       namespace: 'home',
       beforeEnter() {
+        console.log('scroll by 1px');
+        window.scrollTo(0, 1);
         slideShow({
           withLoadingScreen: !barba.history.previous,
         });
