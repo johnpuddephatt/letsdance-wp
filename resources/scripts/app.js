@@ -93,17 +93,16 @@ barba.init({
     {
       name: 'project-open',
       sync: true,
-      once() {
+      once() {},
+      leave() {},
+      enter() {},
+      beforeOnce() {
         document.querySelectorAll('.is-type-video').forEach((elem) => {
           elem.classList.add('has-play-button');
           elem.querySelector('iframe').addEventListener('click', () => {
             elem.classList.remove('has-play-button');
           });
         });
-      },
-      leave() {},
-      enter() {},
-      beforeOnce() {
         fadeInProjectImages();
       },
       before(e) {
