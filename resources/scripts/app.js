@@ -96,7 +96,7 @@ barba.init({
       once() {
         document.querySelectorAll('.is-type-video').forEach((elem) => {
           elem.classList.add('has-play-button');
-          elem.addEventListener('click', () => {
+          elem.querySelector('iframe').addEventListener('click', () => {
             elem.classList.remove('has-play-button');
           });
         });
@@ -132,7 +132,7 @@ barba.init({
 
         document.querySelectorAll('.is-type-video').forEach((elem) => {
           elem.classList.add('has-play-button');
-          elem.addEventListener('click', () => {
+          elem.querySelector('iframe').addEventListener('click', () => {
             elem.classList.remove('has-play-button');
           });
         });
