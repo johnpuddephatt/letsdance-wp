@@ -38,7 +38,7 @@
 }
 
 .wp-block-embed {
-  @apply rounded #{!important};
+  @apply rounded overflow-hidden #{!important};
 }
 
 .page-content {
