@@ -6,6 +6,7 @@ import Alpine from 'alpinejs';
 import aos from './modules/aos';
 import slideShow from './modules/slideshow';
 import imageMask from './modules/imageMask';
+import fixSizesAttribute from './modules/fixSizesAttribute';
 import fadeInProjectImages from './modules/fadeInProjectImages';
 
 aos(document.querySelectorAll('[data-aos]'));
@@ -97,6 +98,8 @@ barba.init({
       leave() {},
       enter() {},
       beforeOnce() {
+        fixSizesAttribute();
+
         document.querySelectorAll('.is-type-video').forEach((elem) => {
           elem.classList.add('has-play-button');
           window.addEventListener('blur', function () {
@@ -109,6 +112,7 @@ barba.init({
         fadeInProjectImages();
       },
       before(e) {
+        fixSizesAttribute();
         var imageElement =
           e.trigger.classList && e.trigger.classList.contains('project-item')
             ? e.trigger.querySelector('img')

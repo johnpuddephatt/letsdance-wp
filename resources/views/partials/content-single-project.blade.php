@@ -14,7 +14,8 @@
   <div class="container container--wide">
     {!! get_the_post_thumbnail(null, '2by1', [
     'class' => "project-template--featured-image",
-    'sizes' => '(max-width: 1024px) 100vw, 1280px'
+    'sizes' => '(min-width: 1536px) 1536px, (min-width: 1280px) 1280px, (min-width: 1024px) 1024px, (min-width: 768px)
+    768px, (min-width: 640px) 640px, 100vw'
     ]) !!}
   </div>
 
