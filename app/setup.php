@@ -361,3 +361,8 @@ function create_project_post_type()
 }
 
 add_action('init', 'App\create_project_post_type');
+
+
+add_action( 'wp_head', function() {
+    echo '<meta name="apple-mobile-web-app-capable" content="yes">';
+});
