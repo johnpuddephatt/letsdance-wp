@@ -22,7 +22,7 @@
   img {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    @apply rounded;
+    @apply rounded #{!important};
   }
 }
 
@@ -37,6 +37,10 @@
   margin-bottom: 0 !important;
 }
 
+.wp-block-embed {
+  @apply rounded #{!important};
+}
+
 .page-content {
   & > * {
     @apply max-w-3xl 2xl:max-w-4xl mx-auto;
@@ -49,6 +53,10 @@
       @apply max-w-none;
       width: calc(100% + (100vw - 100%));
       margin-left: calc(50% - 50vw) !important;
+
+      img {
+        @apply rounded-none #{!important};
+      }
     }
   }
 }

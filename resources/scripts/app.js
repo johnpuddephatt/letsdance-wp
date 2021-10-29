@@ -122,6 +122,13 @@ barba.init({
         });
 
         fadeInProjectImages();
+
+        document.querySelectorAll('.is-type-video').forEach((elem) => {
+          elem.classList.add('has-play-button');
+          elem.addEventListener('click', () => {
+            elem.classList.remove('has-play-button');
+          });
+        });
       },
       afterLeave() {
         // barba.wrapper.scrollTop = 0;
