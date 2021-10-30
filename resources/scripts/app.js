@@ -39,10 +39,6 @@ barba.init({
           withLoadingScreen: !barba.history.previous,
         });
       },
-      afterEnter() {
-        console.log('scroll by 1px');
-        window.scrollTo(0, 25);
-      },
     },
   ],
   transitions: [
