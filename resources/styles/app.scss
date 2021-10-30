@@ -3,9 +3,21 @@
 @import 'animations';
 @import 'transitions';
 
+html,
+body.home,
+body.home #app,
+body.home #app > div[role='document'],
+body.home main {
+  height: -webkit-fill-available;
+}
+
 .min-h-screen {
   min-height: 100vh;
   min-height: -webkit-fill-available;
+}
+
+.min-h-full {
+  min-height: 100%;
 }
 
 #hero-image-slider picture {
