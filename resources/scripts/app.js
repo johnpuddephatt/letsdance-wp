@@ -8,6 +8,7 @@ import slideShow from './modules/slideshow';
 import imageMask from './modules/imageMask';
 import fixSizesAttribute from './modules/fixSizesAttribute';
 import fadeInProjectImages from './modules/fadeInProjectImages';
+import addPlayButtonToVideos from './modules/addPlayButtonToVideos';
 
 aos(document.querySelectorAll('[data-aos]'));
 
@@ -99,16 +100,7 @@ barba.init({
       enter() {},
       beforeOnce() {
         fixSizesAttribute();
-
-        document.querySelectorAll('.is-type-video').forEach((elem) => {
-          elem.classList.add('has-play-button');
-          window.addEventListener('blur', function () {
-            console.log('blur', document.activeElement);
-            if (document.activeElement == elem.querySelector('iframe')) {
-              elem.classList.remove('has-play-button');
-            }
-          });
-        });
+        addPlayButtonToVideos();
         fadeInProjectImages();
       },
       before(e) {
@@ -135,15 +127,7 @@ barba.init({
         });
 
         fadeInProjectImages();
-
-        document.querySelectorAll('.is-type-video').forEach((elem) => {
-          elem.classList.add('has-play-button');
-          window.addEventListener('blur', function () {
-            if (document.activeElement == elem.querySelector('iframe')) {
-              elem.classList.remove('has-play-button');
-            }
-          });
-        });
+        addPlayButtonToVideos();
       },
       afterLeave() {
         // barba.wrapper.scrollTop = 0;

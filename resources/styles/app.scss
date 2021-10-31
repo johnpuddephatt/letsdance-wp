@@ -3,6 +3,10 @@
 @import 'animations';
 @import 'transitions';
 
+html {
+  min-height: 110vh;
+}
+
 html,
 body.home,
 body.home #app,
