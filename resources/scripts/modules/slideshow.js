@@ -55,7 +55,11 @@ export default function (config) {
 
 function startSlideshow(config) {
   const slider = simpleslider.getSlider({
-    container: document.getElementById('hero-image-slider'),
+    container: document.getElementById(
+      window.innerWidth > window.innerHeight
+        ? '#hero-image-slider img'
+        : '#hero-image-slider-portrait img'
+    ),
     prop: 'opacity',
     init: 0,
     show: 1,
