@@ -35,7 +35,11 @@ barba.init({
   views: [
     {
       namespace: 'home',
+      onceEnter() {
+        document.documentElement.classList.add('h-fill');
+      },
       beforeEnter() {
+        document.documentElement.classList.add('h-fill');
         slideShow({
           withLoadingScreen: !barba.history.previous,
         });

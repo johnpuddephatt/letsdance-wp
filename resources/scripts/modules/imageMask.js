@@ -8,7 +8,7 @@ export default function (config) {
 
   if (mask) {
     if (config.mode == 'create') {
-      document.body.classList.add('overflow-hidden');
+      document.body.classList.add('pointer-events-none');
       mask.src = config.target.src;
       mask.classList.add(
         'project-image-mask',
@@ -17,7 +17,7 @@ export default function (config) {
         'border',
         'border-gray-50',
         'transition-all',
-        `duration-[750ms]`,
+        `duration-[600ms]`,
         'fixed',
         'z-10'
       );
@@ -48,7 +48,7 @@ export default function (config) {
     } else {
       config.target.style.visibility = 'hidden';
       setTimeout(() => {
-        document.body.classList.remove('overflow-hidden');
+        document.body.classList.remove('pointer-events-none');
         config.target.style.visibility = 'visible';
         mask.remove();
       }, '750');
