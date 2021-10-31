@@ -23,6 +23,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        portrait: { raw: '(orientation: portrait)' },
+      },
       colors: {
         blue: '#3e23e9',
         cyan: '#b0eee1',

@@ -67,6 +67,13 @@ add_action('after_setup_theme', function ()
     add_image_size('16by9', 800, 450, true);
     add_image_size('16by9-s', 400, 225, true);
     add_image_size('16by9-xs', 240, 135, true);
+    
+    add_image_size('9by16-xxl', 1125, 2000, true);
+    add_image_size('9by16-xl', 900, 600, true);
+    add_image_size('9by16-l', 675, 1200, true);
+    add_image_size('9by16', 450, 800, true);
+    add_image_size('9by16-s', 225, 400, true);
+    add_image_size('9by16-xs', 135, 240, true);
 
     add_image_size('2by1-xxxl', 3000, 1500, true);
     add_image_size('2by1-xxl', 2000, 1000, true);
@@ -104,6 +111,8 @@ add_action('after_setup_theme', function ()
     add_image_size('square', 800, 800, true);
     add_image_size('square-s', 640, 640, true);
     add_image_size('square-xs', 320, 320, true);
+
+    
 
     add_filter('image_size_names_choose', function ($sizes)
     {

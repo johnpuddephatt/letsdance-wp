@@ -1,6 +1,6 @@
 <header class="z-40 transition-transform delay-75 transform bg-white border-t border-gray-50"
   :class="{'translate-y-full transition-none' : $store.siteLoading}" role="banner">
-  <div class="container flex items-center justify-between h-20 max-w-none">
+  <div class="container flex items-center justify-between h-12 lg:h-20 max-w-none">
     <div>
       <a class="block mr-3 text-xl antialiased font-bold leading-none text-gray-800 no-underline lg:text-2xl md:inline"
         href="{{ home_url('/') }}">
