@@ -3,8 +3,8 @@
 @import 'animations';
 @import 'transitions';
 
-html {
-  min-height: 110vh;
+body:not(.home) {
+  min-height: calc(100vh + 1px);
 }
 
 html,
