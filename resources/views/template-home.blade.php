@@ -6,21 +6,25 @@ Template Name: Home Template
 
 @section('content')
 <div class="relative flex flex-col max-h-screen min-h-screen overflow-hidden">
-  <section class="relative flex-1 overflow-hidden" data-simple-slider id="hero-image-slider">
-    <!-- Desktop -->
+  <!-- Desktop -->
+  <section class="relative flex-1 overflow-hidden portrait:hidden" data-simple-slider id="hero-image-slider">
     @foreach($slides as $slide)
-    {!! get_the_post_thumbnail($slide->ID, '16by9-xxl', ['class' => "portrait:hidden inset-0 absolute h-full w-full
+    {!! get_the_post_thumbnail($slide->ID, '16by9-xxl', ['class' => "inset-0 absolute h-full w-full
     object-cover
     object-center"]) !!}
     @endforeach
-    <!-- Mobile -->
+  </section>
+
+  <!-- Mobile -->
+  <section class="relative flex-1 hidden overflow-hidden portrait:block" data-simple-slider
+    id="hero-image-slider-portrait">
     @foreach($slides as $slide)
-    {!! get_the_post_thumbnail($slide->ID, '9by16-xxl', ['class' => "hidden portrait:block inset-0 absolute h-full
+    {!! get_the_post_thumbnail($slide->ID, '9by16-xxl', ['class' => "inset-0 absolute h-full
     w-full object-cover
     object-center"]) !!}
     @endforeach
-
   </section>
+
   @include('partials.header')
 </div>
 @endsection

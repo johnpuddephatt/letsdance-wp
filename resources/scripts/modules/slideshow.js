@@ -10,7 +10,12 @@ export default function (config) {
   }
 
   var sliderImagesLoaded = 0;
-  let sliderImages = document.querySelectorAll('#hero-image-slider img');
+
+  let sliderImages = document.querySelectorAll(
+    window.innerWidth > window.innerHeight
+      ? '#hero-image-slider img'
+      : '#hero-image-slider-portrait img'
+  );
   let ldLoaded = false;
 
   let startSlideshowIfAllLoaded = function () {
