@@ -7,7 +7,7 @@
         {!!
         $project->post_title !!}
     </h3>
-    <p class="font-serif text-2xl antialiased leading-tight text-gray-800 lg:leading-none lg:text-3xl">{!!
+    <p class="font-serif text-2xl antialiased leading-tight text-gray-800 lg:leading-tight lg:text-3xl">{!!
         $project->post_excerpt
         !!}
     </p>

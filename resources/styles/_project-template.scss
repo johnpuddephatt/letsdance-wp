@@ -13,7 +13,7 @@
     @apply lg:w-2/3;
   }
   &--excerpt {
-    @apply mb-6 -mt-0.5 font-serif text-4xl lg:text-5xl leading-tight text-gray-700;
+    @apply mb-6 -mt-0.5 font-serif text-4xl lg:text-5xl leading-tight lg:leading-tight text-gray-700;
   }
   &--intro {
     @apply text-sm md:text-base my-0 leading-snug #{!important};
