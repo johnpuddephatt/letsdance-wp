@@ -1,6 +1,6 @@
 <footer class="container border-t container--wide">
   <div
-    class="my-12 font-serif text-3xl antialiased leading-snug text-center text-gray-700 lg:my-16 lg:leading-snug lg:text-4xl">
+    class="my-12 font-serif text-2xl antialiased leading-snug text-center text-gray-700 lg:my-16 lg:leading-snug lg:text-4xl">
     Sound
     good?<br>
     <a href="/contact/" class="underline text-blue underline-thin">Let’s
