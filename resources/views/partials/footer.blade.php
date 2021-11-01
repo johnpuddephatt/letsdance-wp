@@ -1,11 +1,12 @@
 <footer class="container border-t container--wide">
-  <div class="mt-16 font-serif text-3xl antialiased leading-snug text-center text-gray-700 lg:leading-snug lg:text-4xl">
+  <div
+    class="my-12 font-serif text-3xl antialiased leading-snug text-center text-gray-700 lg:my-16 lg:leading-snug lg:text-4xl">
     Sound
     good?<br>
     <a href="/contact/" class="underline text-blue underline-thin">Let’s
       Dance</a>
   </div>
-  <div class="flex items-center justify-between h-28">
+  <div class="flex items-center justify-between h-12 lg:h-20">
     @if($withBackToProjects ?? false)
     <a class="antialiased font-semibold text-gray-500 no-underline lowercase lg:text-base" href="/projects/"><span
         class=" font-system">&larr;</span> See all projects</a>
