@@ -22,14 +22,19 @@ document.body.addEventListener('keyup', function (e) {
   }
 });
 
-barba.hooks.beforeEnter(() => {
-  if (barba.C.next.container) {
-    aos(barba.C.next.container.querySelectorAll('[data-aos]'));
+barba.hooks.beforeEnter((data) => {
+  console.log(data);
+
+  if (
+    data.next.container &&
+    !(data.next.namespace == 'standard' && data.current.namespace == 'project')
+  ) {
+    aos(data.next.container.querySelectorAll('[data-aos]'));
   }
 });
 
 barba.init({
-  debug: true,
+  debug: false,
   views: [
     {
       namespace: 'home',

@@ -26,6 +26,10 @@ body.home main {
   }
 }
 
+main {
+  outline: none !important;
+}
+
 #hero-image-slider picture {
   position: static !important;
 }
