@@ -23,8 +23,6 @@ document.body.addEventListener('keyup', function (e) {
 });
 
 barba.hooks.beforeEnter((data) => {
-  console.log(data);
-
   if (
     data.next.container &&
     !(data.next.namespace == 'standard' && data.current.namespace == 'project')
@@ -139,7 +137,7 @@ barba.init({
       once() {},
       leave() {},
       enter() {},
-      before() {
+      before(e) {
         imageMask({
           target: document.querySelector('.project-template--featured-image'),
           mode: 'create',
@@ -147,15 +145,23 @@ barba.init({
         });
       },
       beforeEnter(e) {
-        imageMask({
-          target: document.querySelector(
-            `a[href*="${e.current.url.path}"] img`
-          ),
-          mode: 'update',
-          transition: 'project-close',
-        });
+        imageMask(
+          {
+            target: document.querySelector(
+              `a[href*="${e.current.url.path}"] img`
+            ),
+            mode: 'update',
+            transition: 'project-close',
+          },
+          e
+        );
       },
-      afterLeave() {
+      afterEnter(e) {
+        document.documentElement.scrollTop =
+          document.querySelector(`a[href*="${e.current.url.path}"]`).offsetTop -
+          100;
+      },
+      afterLeave(e) {
         // barba.wrapper.scrollTop = 0;
       },
       from: {

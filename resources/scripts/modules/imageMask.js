@@ -1,6 +1,6 @@
 'use strict';
 
-export default function (config) {
+export default function (config, barbaEvent) {
   var mask =
     config.mode == 'create'
       ? document.createElement('img')
@@ -23,8 +23,7 @@ export default function (config) {
       );
     }
 
-    let imgBounds = config.target.getBoundingClientRect();
-    var modX;
+    var modX, modY;
 
     if (config.mode == 'update') {
       modX =
@@ -34,6 +33,13 @@ export default function (config) {
     } else {
       modX = 0;
     }
+
+    if (config.mode == 'update' && config.transition == 'project-close') {
+      modY = config.target.parentNode.offsetTop;
+      barbaEvent.next.container.style.top = `-${modY - 100}px`;
+    }
+
+    let imgBounds = config.target.getBoundingClientRect();
 
     mask.style.left = imgBounds.x + modX + 'px';
     mask.style.top = imgBounds.y + 'px';
