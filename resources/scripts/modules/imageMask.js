@@ -50,7 +50,7 @@ export default function (config, barbaEvent) {
       document.body.append(mask);
       setTimeout(() => {
         config.target.style.visibility = 'hidden';
-      }, 10);
+      }, 50);
     } else {
       config.target.style.visibility = 'hidden';
       setTimeout(() => {

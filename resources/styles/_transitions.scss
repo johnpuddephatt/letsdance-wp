@@ -39,7 +39,7 @@ $duration: 500ms;
  */
 
 .slide-right-enter {
-  @apply transform -translate-x-full;
+  @apply transform -translate-x-full duration-0 delay-0 #{!important};
 }
 
 .slide-right-enter-active,
@@ -56,7 +56,7 @@ $duration: 500ms;
 }
 
 .slide-left-enter {
-  @apply transform translate-x-full;
+  @apply transform translate-x-full duration-0 delay-0  #{!important};
 }
 
 // Inner container
