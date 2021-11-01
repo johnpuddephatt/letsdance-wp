@@ -10,8 +10,6 @@ import fixSizesAttribute from './modules/fixSizesAttribute';
 import fadeInProjectImages from './modules/fadeInProjectImages';
 import addPlayButtonToVideos from './modules/addPlayButtonToVideos';
 
-aos(document.querySelectorAll('[data-aos]'));
-
 window.Alpine = Alpine;
 Alpine.start();
 
@@ -24,20 +22,17 @@ document.body.addEventListener('keyup', function (e) {
   }
 });
 
-barba.hooks.afterLeave(() => {
-  if (barba.history.previous) {
-    // aos();
+barba.hooks.beforeEnter(() => {
+  if (barba.C.next.container) {
+    aos(barba.C.next.container.querySelectorAll('[data-aos]'));
   }
 });
 
 barba.init({
-  debug: false,
+  debug: true,
   views: [
     {
       namespace: 'home',
-      onceEnter() {
-        document.documentElement.classList.add('h-fill');
-      },
       beforeEnter() {
         document.documentElement.classList.add('h-fill');
         slideShow({
@@ -47,9 +42,6 @@ barba.init({
     },
   ],
   transitions: [
-    {
-      name: 'fade',
-    },
     {
       name: 'slide-right',
       sync: true,
@@ -103,8 +95,6 @@ barba.init({
       leave() {},
       enter() {},
       beforeOnce() {
-        fixSizesAttribute();
-        addPlayButtonToVideos();
         fadeInProjectImages();
       },
       before(e) {
@@ -123,15 +113,13 @@ barba.init({
         }
       },
       beforeEnter() {
-        // window.scrollTo(0, 0);
+        fadeInProjectImages();
+        fixSizesAttribute();
         imageMask({
           target: document.querySelector('.project-template--featured-image'),
           mode: 'update',
           transition: 'project-open',
         });
-
-        fadeInProjectImages();
-        addPlayButtonToVideos();
       },
       afterLeave() {
         // barba.wrapper.scrollTop = 0;

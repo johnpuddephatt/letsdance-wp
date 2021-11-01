@@ -4,7 +4,7 @@
 
 @include('partials.header')
 
-<div class="container grid grid-cols-2 gap-6 my-24 lg:my-32 lg:gap-12">
+<div class="container grid grid-cols-1 gap-12 my-16 lg:my-24 lg:grid-cols-2 lg:my-32 lg:gap-x-16 lg:gap-y-24">
   @foreach($projects as $key => $project)
   @include('partials.project-card')
   @endforeach

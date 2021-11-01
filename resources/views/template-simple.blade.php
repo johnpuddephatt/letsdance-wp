@@ -12,7 +12,8 @@ Template Name: Simple Template
     href="javascript:barba.history.previous ? barba.go(barba.history.previous.url) : barba.go('/')">×</a>
   <div class="container max-w-4xl mt-40 mb-32 transition duration-500">
     <hr class="w-40 mb-8 border-t-4 border-white ">
-    <div class="mx-auto prose max-w-none prose-light">
+    <div
+      class="mx-auto prose-sm prose md:prose max-w-none md:max-w-none xl:prose-lg xl:max-w-none prose-light md:prose-light xl:prose-light">
       {{ the_content() }}
     </div>
   </div>

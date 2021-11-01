@@ -8,7 +8,6 @@ $duration: 500ms;
 .project-open,
 .project-close {
   &-leave-active,
-  &-once-active,
   &-enter-active {
     @apply transition duration-[#{$duration}];
   }
@@ -25,7 +24,6 @@ $duration: 500ms;
 .slide-up,
 .slide-down {
   &-leave-to,
-  &-once-to,
   &-enter-to {
     @apply transform translate-x-0 fixed top-0 left-0 right-0 transition duration-[#{$duration }];
   }
@@ -83,12 +81,18 @@ $duration: 500ms;
 
 .slide-up-enter,
 .slide-down-leave-to {
-  transform: translateY(calc(100vh - 5rem));
+  transform: translateY(calc(100vh - 3rem));
+  @media (min-width: 1024px) {
+    transform: translateY(calc(100vh - 5rem));
+  }
 }
 
 .slide-down-enter,
 .slide-up-leave-to {
-  transform: translateY(calc(-100vh + 5rem));
+  transform: translateY(calc(-100vh + 3rem));
+  @media (min-width: 1024px) {
+    transform: translateY(calc(-100vh + 5rem));
+  }
 }
 
 // .project-open,

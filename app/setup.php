@@ -60,7 +60,7 @@ add_editor_style('public/styles/editor.css');
  */
 add_action('after_setup_theme', function ()
 {
-    add_image_size('16by9-xxxl', 3000, 1688, true);
+    add_image_size('16by9-xxxl', 3008, 1692, true);
     add_image_size('16by9-xxl', 2000, 1125, true);
     add_image_size('16by9-xl', 1600, 900, true);
     add_image_size('16by9-l', 1200, 675, true);
