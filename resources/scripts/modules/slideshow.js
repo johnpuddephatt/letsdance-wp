@@ -5,8 +5,10 @@ window.Alpine = Alpine;
 
 export default function (config) {
   if (config.withLoadingScreen) {
-    Alpine.store('siteLoading', true);
-    Alpine.start();
+    document.addEventListener('DOMContentLoaded', () => {
+      Alpine.store('siteLoading', true);
+      Alpine.start();
+    });
   }
 
   var sliderImagesLoaded = 0;
