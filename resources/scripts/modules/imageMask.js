@@ -8,7 +8,6 @@ export default function (config, barbaEvent) {
 
   if (mask) {
     if (config.mode == 'create') {
-      document.body.classList.add('pointer-events-none');
       mask.src = config.target.src;
       mask.classList.add(
         'project-image-mask',
@@ -17,7 +16,7 @@ export default function (config, barbaEvent) {
         'border',
         'border-gray-50',
         'transition-all',
-        `duration-[600ms]`,
+        `duration-[750ms]`,
         'fixed',
         'z-[99999]'
       );
@@ -34,9 +33,12 @@ export default function (config, barbaEvent) {
       modX = 0;
     }
 
+    // @todo - move this out of imageMask?
     if (config.mode == 'update' && config.transition == 'project-close') {
       modY = config.target.parentNode.offsetTop;
-      barbaEvent.next.container.style.top = `-${modY - 100}px`;
+      barbaEvent.next.container.style.top = `-${
+        modY - document.querySelector('main header').clientHeight
+      }px`;
     }
 
     let imgBounds = config.target.getBoundingClientRect();
@@ -48,16 +50,10 @@ export default function (config, barbaEvent) {
 
     if (config.mode == 'create') {
       document.body.append(mask);
-      setTimeout(() => {
-        config.target.style.visibility = 'hidden';
-      }, 100);
-    } else {
-      config.target.style.visibility = 'hidden';
-      setTimeout(() => {
-        document.body.classList.remove('pointer-events-none');
-        config.target.style.visibility = 'visible';
-        mask.remove();
-      }, '200');
     }
+
+    setTimeout(() => {
+      config.target.style.visibility = 'hidden';
+    }, 50);
   }
 }

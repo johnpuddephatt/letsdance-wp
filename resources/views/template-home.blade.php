@@ -32,7 +32,7 @@ Template Name: Home Template
   @if (has_nav_menu('primary_navigation'))
   {!! wp_nav_menu([
   'theme_location' => 'primary_navigation',
-  'menu_class' => 'container bottom-12 absolute justify-end inset-0 bg-black bg-opacity-50 text-white
+  'menu_class' => 'max-w-none container bottom-20 absolute justify-end inset-0 bg-black bg-opacity-60 text-white
   antialiased font-bold text-4xl hidden portrait:flex lowercase m-0 z-10 pb-12 flex-col content-end',
   'echo' => false]) !!}
   @endif

@@ -101,6 +101,10 @@ barba.init({
         fadeInProjectImages();
       },
       before(e) {
+        e.next.container.style.transform = 'translate-x(99999px)';
+        e.current.container.style.top =
+          -document.documentElement.scrollTop + 'px';
+
         fixSizesAttribute();
         var imageElement =
           e.trigger.classList && e.trigger.classList.contains('project-item')
@@ -108,24 +112,34 @@ barba.init({
             : document.querySelector(`a[href*="${e.next.url.href}"] img`);
 
         if (imageElement) {
-          imageMask({
-            target: imageElement,
-            mode: 'create',
-            transition: 'project-open',
-          });
+          imageMask(
+            {
+              target: imageElement,
+              mode: 'create',
+              transition: 'project-open',
+            },
+            e
+          );
         }
       },
-      beforeEnter() {
+      beforeEnter(e) {
         fadeInProjectImages();
         fixSizesAttribute();
-        imageMask({
-          target: document.querySelector('.project-template--featured-image'),
-          mode: 'update',
-          transition: 'project-open',
-        });
+        imageMask(
+          {
+            target: document.querySelector('.project-template--featured-image'),
+            mode: 'update',
+            transition: 'project-open',
+          },
+          e
+        );
       },
-      afterLeave() {
-        // barba.wrapper.scrollTop = 0;
+
+      afterEnter() {
+        document.querySelector(
+          '.project-template--featured-image'
+        ).style.visibility = 'visible';
+        document.querySelector('.project-image-mask').remove();
       },
       to: {
         namespace: 'project',
@@ -157,13 +171,18 @@ barba.init({
         );
       },
       afterEnter(e) {
+        let imageMaskTarget = document.querySelector(
+          `a[href*="${e.current.url.path}"] img`
+        );
         document.documentElement.scrollTop =
-          document.querySelector(`a[href*="${e.current.url.path}"]`).offsetTop -
-          100;
+          imageMaskTarget.parentNode.offsetTop -
+          document.querySelector('main header').clientHeight;
+        imageMaskTarget.style.visibility = 'visible';
+        document.querySelector('.project-image-mask').remove();
       },
-      afterLeave(e) {
-        // barba.wrapper.scrollTop = 0;
-      },
+      // afterLeave(e) {
+      // barba.wrapper.scrollTop = 0;
+      // },
       from: {
         namespace: 'project',
       },
