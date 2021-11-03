@@ -1,7 +1,7 @@
 import '@wordpress/edit-post';
 const { subscribe, select } = wp.data;
 import domReady from '@wordpress/dom-ready';
-import { unregisterBlockStyle, registerBlockStyle } from '@wordpress/blocks';
+import { unregisterBlockStyle } from '@wordpress/blocks';
 
 domReady(() => {
   unregisterBlockStyle('core/image', 'rounded');

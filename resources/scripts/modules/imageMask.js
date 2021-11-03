@@ -50,14 +50,14 @@ export default function (config, barbaEvent) {
       document.body.append(mask);
       setTimeout(() => {
         config.target.style.visibility = 'hidden';
-      }, 50);
+      }, 100);
     } else {
       config.target.style.visibility = 'hidden';
       setTimeout(() => {
         document.body.classList.remove('pointer-events-none');
         config.target.style.visibility = 'visible';
         mask.remove();
-      }, '750');
+      }, '1000');
     }
   }
 }
