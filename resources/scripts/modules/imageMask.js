@@ -57,7 +57,7 @@ export default function (config, barbaEvent) {
         document.body.classList.remove('pointer-events-none');
         config.target.style.visibility = 'visible';
         mask.remove();
-      }, '1500');
+      }, '200');
     }
   }
 }
