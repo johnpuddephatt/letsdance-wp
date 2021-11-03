@@ -51,9 +51,6 @@ export default function (config, barbaEvent) {
     if (config.mode == 'create') {
       document.body.append(mask);
     }
-
-    setTimeout(() => {
-      config.target.style.visibility = 'hidden';
-    }, 150);
+    config.target.classList.add('opacity-0', 'transition');
   }
 }
