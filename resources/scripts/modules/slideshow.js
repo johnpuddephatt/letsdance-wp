@@ -35,7 +35,7 @@ export default function (config) {
           setTimeout(() => {
             startSlideshow(config);
           }, 3000);
-        }, 5000);
+        }, 4000);
       } else {
         startSlideshow(config);
       }
