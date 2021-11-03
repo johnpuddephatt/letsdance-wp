@@ -54,6 +54,6 @@ export default function (config, barbaEvent) {
 
     setTimeout(() => {
       config.target.style.visibility = 'hidden';
-    }, 50);
+    }, 150);
   }
 }
