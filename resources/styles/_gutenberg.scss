@@ -67,22 +67,15 @@
   display: block;
 
   &.is-style-overlapping {
-    .blocks-gallery-grid .blocks-gallery-item {
+    .wp-block-image {
       &:nth-child(2) {
         margin: 3em 0 4em -4em;
       }
     }
   }
 
-  .blocks-gallery-grid {
-    list-style-type: none;
-
-    li {
-      padding-left: 0 !important;
-      &::before {
-        content: none !important;
-      }
-    }
+  .wp-block-image {
+    @apply min-w-full lg:min-w-0;
   }
 }
 
