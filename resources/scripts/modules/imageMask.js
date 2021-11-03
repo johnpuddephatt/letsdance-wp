@@ -19,7 +19,7 @@ export default function (config, barbaEvent) {
         'transition-all',
         `duration-[600ms]`,
         'fixed',
-        'z-10'
+        'z-[99999]'
       );
     }
 
