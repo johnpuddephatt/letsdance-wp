@@ -8,7 +8,7 @@ export default function (config, barbaEvent) {
 
   if (mask) {
     if (config.mode == 'create') {
-      document.body.classList.add('pointer-events-none', 'overflow-y-hidden');
+      document.body.classList.add('pointer-events-none');
       mask.src = config.target.src;
       mask.classList.add(
         'project-image-mask',
@@ -54,13 +54,10 @@ export default function (config, barbaEvent) {
     } else {
       config.target.style.visibility = 'hidden';
       setTimeout(() => {
-        document.body.classList.remove(
-          'pointer-events-none',
-          'overflow-y-hidden'
-        );
+        document.body.classList.remove('pointer-events-none');
         config.target.style.visibility = 'visible';
         mask.remove();
-      }, '1000');
+      }, '1500');
     }
   }
 }
