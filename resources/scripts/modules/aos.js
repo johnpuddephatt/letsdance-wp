@@ -34,7 +34,7 @@ export default function (elems) {
       setTimeout(() => {
         element.classList.remove('!duration-0', '!delay-0');
         observer.observe(element);
-      }, 150);
+      }, 50);
     };
 
     var observer = new IntersectionObserver(callback, options);
