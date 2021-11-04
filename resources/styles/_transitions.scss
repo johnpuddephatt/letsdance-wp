@@ -1,4 +1,4 @@
-$duration: 750ms; // revert to 500
+$duration: 500ms; // revert to 500
 
 // .fade,
 .slide-left,
@@ -44,7 +44,7 @@ $duration: 750ms; // revert to 500
 
 .slide-right-enter-active,
 .slide-right-leave-active {
-  @apply delay-500 #{!important};
+  // @apply delay-250 #{!important};
 }
 
 .slide-right-leave-to {
@@ -53,6 +53,7 @@ $duration: 750ms; // revert to 500
 
 .slide-left-leave-to {
   @apply transform -translate-x-full;
+  @apply delay-500 #{!important};
 }
 
 .slide-left-enter {
@@ -61,15 +62,15 @@ $duration: 750ms; // revert to 500
 
 // Inner container
 
-.slide-right-enter-active {
+.slide-left-leave-to {
   .container {
-    @apply transform duration-0 delay-0  translate-y-20 opacity-0 #{!important};
+    @apply translate-y-96 opacity-0 duration-300 #{!important};
   }
 }
 
-.slide-left-leave-to {
+.slide-right-enter-active {
   .container {
-    @apply transform translate-y-20 opacity-0 duration-300 #{!important};
+    @apply transform translate-y-48 opacity-0 duration-0 #{ !important };
   }
 }
 
@@ -95,41 +96,9 @@ $duration: 750ms; // revert to 500
   }
 }
 
-// .project-open,
-// .project-close {
-//   &-leave,
-//   &-enter-to {
-//     @apply transform translate-x-0 fixed z-[-9] top-0 left-0 pointer-events-none w-full opacity-100;
-//   }
-
-//   &-once-to,
-//   &-enter-to {
-//   }
-
-//   &-enter {
-//     transition-duration: 0ms !important;
-//     transition-delay: 0ms !important;
-//     opacity: 0 !important;
-//     width: 100%;
-//     top: 0;
-//     left: 0;
-//     position: fixed;
-//     z-index: -999 !important;
-//   }
-
-//   &-enter,
-//   &-leave-to {
-//     @apply opacity-0 pointer-events-none;
-//   }
-
-//   // &-enter-active {
-//   //   @apply delay-[#{$duration}];
-//   // }
-// }
-
 /*
  *
- * SLIDE
+ * PROJECT OPEN/CLOSE
  *
  */
 
@@ -144,6 +113,7 @@ $duration: 750ms; // revert to 500
     top: 0;
     position: fixed;
     z-index: -999;
+    opacity: 0;
   }
 }
 

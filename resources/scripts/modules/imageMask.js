@@ -16,7 +16,7 @@ export default function (config, barbaEvent) {
         'border',
         'border-gray-50',
         'transition-all',
-        `duration-[750ms]`,
+        `duration-[500ms]`,
         'fixed',
         'z-[99999]'
       );

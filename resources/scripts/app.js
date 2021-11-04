@@ -8,7 +8,7 @@ import slideShow from './modules/slideshow';
 import imageMask from './modules/imageMask';
 import fixSizesAttribute from './modules/fixSizesAttribute';
 import fadeInProjectImages from './modules/fadeInProjectImages';
-import addPlayButtonToVideos from './modules/addPlayButtonToVideos';
+// import addPlayButtonToVideos from './modules/addPlayButtonToVideos';
 
 window.Alpine = Alpine;
 Alpine.start();
@@ -32,7 +32,7 @@ barba.hooks.beforeEnter((data) => {
 });
 
 barba.init({
-  debug: false,
+  debug: true,
   views: [
     {
       namespace: 'home',
