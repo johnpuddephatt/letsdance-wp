@@ -25,7 +25,8 @@ class Home extends Composer
         return [
             'slides' => get_posts([
                 'post_type' => 'slide',
-                'numberposts' => -1
+                'numberposts' => -1,
+                'orderby' => 'menu_order'
             ]),
         ];
     }
