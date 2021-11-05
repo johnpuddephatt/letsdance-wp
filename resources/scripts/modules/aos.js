@@ -31,17 +31,22 @@ export default function (elems) {
         '!duration-0',
         ...element.dataset.aosClass.trim().split(' ')
       );
-      setTimeout(() => {
+      console.log(element);
+      if (element.complete) {
         element.classList.remove('!duration-0', '!delay-0');
         observer.observe(element);
-      }, 50);
+      } else {
+        element.querySelector('img').addEventListener('load', () => {
+          element.classList.remove('!duration-0', '!delay-0');
+          observer.observe(element);
+        });
+      }
     };
 
     var observer = new IntersectionObserver(callback, options);
 
     if (elems instanceof NodeList) {
       elems.forEach((element) => {
-        console.log('fade in...');
         fadeIn(element);
       });
     } else {

@@ -32,9 +32,7 @@ export default function (config) {
             'overflow-hidden',
             'pointer-events-none'
           );
-          setTimeout(() => {
-            startSlideshow(config);
-          }, 3000);
+          startSlideshow(config);
         }, 4000);
       } else {
         startSlideshow(config);
@@ -56,12 +54,18 @@ export default function (config) {
 }
 
 function startSlideshow(config) {
-  const slider = simpleslider.getSlider({
-    container: document.getElementById(
-      window.innerWidth > window.innerHeight
-        ? 'hero-image-slider'
-        : 'hero-image-slider-portrait'
-    ),
+  var container = document.getElementById(
+    window.innerWidth > window.innerHeight
+      ? 'hero-image-slider'
+      : 'hero-image-slider-portrait'
+  );
+  if (!config.withLoadingScreen) {
+    for (var i = container.children.length; i >= 0; i--) {
+      container.appendChild(container.children[(Math.random() * i) | 0]);
+    }
+  }
+  var slider = simpleslider.getSlider({
+    container: container,
     prop: 'opacity',
     init: 0,
     show: 1,
@@ -73,13 +77,12 @@ function startSlideshow(config) {
       slide: 'inset-0',
     },
   });
-  if (!config.withLoadingScreen) {
-    slider.change(
-      Math.floor(
-        Math.random() *
-          document.querySelectorAll('#hero-image-slider img').length +
-          1
-      )
-    );
-  }
+
+  slider.pause();
+  setTimeout(
+    () => {
+      slider.resume();
+    },
+    config.withLoadingScreen ? 2000 : 0
+  );
 }
