@@ -1,4 +1,4 @@
-<div x-data role="document" data-barba="wrapper" class="">
+<div x-data role="document" data-barba="wrapper">
 
   <a class="sr-only focus:not-sr-only" href="#main">
     {{ __('Skip to content') }}

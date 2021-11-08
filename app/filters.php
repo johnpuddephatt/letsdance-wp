@@ -17,6 +17,7 @@ add_filter('excerpt_more', function () {
 
 add_filter('body_class', function($classes) {
     return array_merge($classes, [
+        'min-h-screen',
         'no-focus-outline',
         'overflow-x-hidden',
     ]);

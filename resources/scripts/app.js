@@ -38,7 +38,8 @@ barba.init({
     {
       namespace: 'home',
       beforeEnter() {
-        document.documentElement.classList.add('h-fill');
+        document.querySelector('.home-wrapper').style.height =
+          window.innerHeight + 'px';
         slideShow({
           withLoadingScreen: !barba.history.previous,
         });

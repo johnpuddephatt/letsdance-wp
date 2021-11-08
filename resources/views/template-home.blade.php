@@ -5,7 +5,7 @@ Template Name: Home Template
 @extends('layouts.app')
 
 @section('content')
-<div class="relative flex flex-col max-h-screen min-h-screen overflow-hidden bg-black">
+<div class="relative flex flex-col overflow-hidden bg-black home-wrapper">
   <!-- Desktop -->
   <section class="relative flex-1 overflow-hidden portrait:hidden" id="hero-image-slider">
     @foreach($slides as $slide)
