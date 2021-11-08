@@ -8,7 +8,7 @@ export default function (config, barbaEvent) {
 
   if (mask) {
     if (config.mode == 'create') {
-      mask.src = config.target.src;
+      mask.src = config.target.currentSrc;
       mask.classList.add(
         'project-image-mask',
         'block',

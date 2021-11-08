@@ -137,10 +137,19 @@ barba.init({
       },
 
       afterEnter() {
-        document.querySelector(
+        let imageMaskTarget = document.querySelector(
           '.project-template--featured-image'
-        ).style.visibility = 'visible';
-        document.querySelector('.project-image-mask').remove();
+        );
+
+        if (imageMaskTarget.complete) {
+          imageMaskTarget.style.visibility = 'visible';
+          document.querySelector('.project-image-mask').remove();
+        } else {
+          imageMaskTarget.addEventListener('load', () => {
+            imageMaskTarget.style.visibility = 'visible';
+            document.querySelector('.project-image-mask').remove();
+          });
+        }
       },
       to: {
         namespace: 'project',
@@ -178,8 +187,16 @@ barba.init({
         document.documentElement.scrollTop =
           imageMaskTarget.parentNode.offsetTop -
           document.querySelector('main header').clientHeight;
-        imageMaskTarget.style.visibility = 'visible';
-        document.querySelector('.project-image-mask').remove();
+
+        if (imageMaskTarget.complete) {
+          imageMaskTarget.style.visibility = 'visible';
+          document.querySelector('.project-image-mask').remove();
+        } else {
+          imageMaskTarget.addEventListener('load', () => {
+            imageMaskTarget.style.visibility = 'visible';
+            document.querySelector('.project-image-mask').remove();
+          });
+        }
       },
       // afterLeave(e) {
       // barba.wrapper.scrollTop = 0;
