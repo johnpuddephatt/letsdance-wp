@@ -45,6 +45,13 @@ barba.init({
         });
       },
     },
+    {
+      namespace: 'simple',
+      beforeEnter() {
+        document.querySelector('.simple-wrapper').style.minheight =
+          window.innerHeight + 'px';
+      },
+    },
   ],
   transitions: [
     {
