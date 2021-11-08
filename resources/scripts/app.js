@@ -23,7 +23,13 @@ document.body.addEventListener('keyup', function (e) {
 });
 
 barba.hooks.beforeEnter((data) => {
-  aos(data.next.container.querySelectorAll('[data-aos]'));
+  // don't run aos when exiting a single project page – it conflicts with the image Mask!
+  if (
+    data.next.container &&
+    !(data.next.namespace == 'standard' && data.current.namespace == 'project')
+  ) {
+    aos(data.next.container.querySelectorAll('[data-aos]'));
+  }
 });
 
 barba.init({

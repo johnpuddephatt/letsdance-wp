@@ -34,8 +34,11 @@ export default function (elems) {
       let img = element.querySelector('img');
 
       if (img.complete) {
-        element.classList.remove('!duration-0', '!delay-0');
-        observer.observe(element);
+        // We need a small timeout here otherwise the classes aren't on the element long enough to have any effect.
+        setTimeout(() => {
+          element.classList.remove('!duration-0', '!delay-0');
+          observer.observe(element);
+        }, 50);
       } else {
         img.addEventListener('load', () => {
           element.classList.remove('!duration-0', '!delay-0');
