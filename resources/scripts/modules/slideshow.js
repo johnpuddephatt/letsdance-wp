@@ -22,6 +22,12 @@ export default function (config) {
 
   let startSlideshowIfAllLoaded = function () {
     if (sliderImagesLoaded >= sliderImages.length && ldLoaded == false) {
+      console.log(
+        'starting slideshow if all loaded',
+        sliderImagesLoaded,
+        sliderImages.length,
+        ldLoaded
+      );
       ldLoaded = true;
       if (config.withLoadingScreen) {
         setTimeout(() => {
