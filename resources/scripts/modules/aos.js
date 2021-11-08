@@ -31,12 +31,13 @@ export default function (elems) {
         '!duration-0',
         ...element.dataset.aosClass.trim().split(' ')
       );
-      console.log(element);
-      if (element.complete) {
+      let img = element.querySelector('img');
+
+      if (img.complete) {
         element.classList.remove('!duration-0', '!delay-0');
         observer.observe(element);
       } else {
-        element.querySelector('img').addEventListener('load', () => {
+        img.addEventListener('load', () => {
           element.classList.remove('!duration-0', '!delay-0');
           observer.observe(element);
         });

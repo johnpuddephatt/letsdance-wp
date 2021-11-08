@@ -23,12 +23,7 @@ document.body.addEventListener('keyup', function (e) {
 });
 
 barba.hooks.beforeEnter((data) => {
-  if (
-    data.next.container &&
-    !(data.next.namespace == 'standard' && data.current.namespace == 'project')
-  ) {
-    aos(data.next.container.querySelectorAll('[data-aos]'));
-  }
+  aos(data.next.container.querySelectorAll('[data-aos]'));
 });
 
 barba.init({
