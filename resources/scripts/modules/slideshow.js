@@ -9,6 +9,17 @@ export default function (config) {
       Alpine.store('siteLoading', true);
       Alpine.start();
     });
+  } else {
+    let container = document.querySelector(
+      window.innerWidth > window.innerHeight
+        ? '#hero-image-slider'
+        : '#hero-image-slider-portrait'
+    );
+    container.classList.add('opacity-0');
+
+    for (var i = container.children.length; i >= 0; i--) {
+      container.appendChild(container.children[(Math.random() * i) | 0]);
+    }
   }
 
   var sliderImagesLoaded = 0;
@@ -22,12 +33,6 @@ export default function (config) {
 
   let startSlideshowIfAllLoaded = function () {
     if (sliderImagesLoaded >= sliderImages.length && ldLoaded == false) {
-      console.log(
-        'starting slideshow if all loaded',
-        sliderImagesLoaded,
-        sliderImages.length,
-        ldLoaded
-      );
       ldLoaded = true;
       if (config.withLoadingScreen) {
         setTimeout(() => {
@@ -48,12 +53,10 @@ export default function (config) {
 
   sliderImages.forEach((image) => {
     if (image.complete) {
-      console.log('adding one to loaded count');
       sliderImagesLoaded++;
       startSlideshowIfAllLoaded();
     } else {
       image.addEventListener('load', () => {
-        console.log('adding one to loaded count');
         sliderImagesLoaded++;
         startSlideshowIfAllLoaded();
       });
@@ -67,11 +70,10 @@ function startSlideshow(config) {
       ? 'hero-image-slider'
       : 'hero-image-slider-portrait'
   );
-  if (!config.withLoadingScreen) {
-    for (var i = container.children.length; i >= 0; i--) {
-      container.appendChild(container.children[(Math.random() * i) | 0]);
-    }
-  }
+
+  container.classList.add('transition');
+  container.classList.remove('opacity-0');
+
   var slider = simpleslider.getSlider({
     container: container,
     prop: 'opacity',
