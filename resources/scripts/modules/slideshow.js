@@ -48,10 +48,12 @@ export default function (config) {
 
   sliderImages.forEach((image) => {
     if (image.complete) {
+      console.log('adding one to loaded count');
       sliderImagesLoaded++;
       startSlideshowIfAllLoaded();
     } else {
       image.addEventListener('load', () => {
+        console.log('adding one to loaded count');
         sliderImagesLoaded++;
         startSlideshowIfAllLoaded();
       });
