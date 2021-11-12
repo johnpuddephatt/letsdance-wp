@@ -19,6 +19,16 @@ main {
   text-decoration-thickness: 1px;
 }
 
+.underline-thick {
+  text-decoration-thickness: 0.15em;
+  text-underline-offset: 0.15em;
+  text-decoration-color: transparentize($color: #3e23e9, $amount: 0.9);
+
+  &:hover {
+    text-decoration-color: transparentize($color: #3e23e9, $amount: 0.65);
+  }
+}
+
 .no-focus-outline a:focus {
   outline: none !important;
 }

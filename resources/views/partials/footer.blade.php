@@ -3,7 +3,7 @@
     class="my-12 font-serif text-2xl antialiased leading-snug text-center text-gray-700 lg:my-16 lg:leading-snug lg:text-4xl">
     Sound
     good?<br>
-    <a href="/contact/" class="underline text-blue underline-thin">Let’s
+    <a href="/contact/" class="underline text-blue underline-thick">Let’s
       Dance</a>
   </div>
   <div class="flex items-center justify-between h-12 lg:h-20">
