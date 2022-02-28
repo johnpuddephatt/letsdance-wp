@@ -12,8 +12,13 @@ namespace App;
  * @return string
  */
 add_filter('excerpt_more', function () {
-    return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
+    return null;
+    // return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
 });
+
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+
+
 
 add_filter('body_class', function($classes) {
     return array_merge($classes, [
@@ -31,6 +36,7 @@ add_filter('body_class', function($classes) {
 add_filter( 'the_content', function ( $content ) {
     if ( is_singular() && in_the_loop() && is_main_query() ) {
         $content = str_replace('<!-- wp:post-featured-image {"align":"wide","className":"project-template\u002d\u002dfeatured-image","lock":{"remove":true,"move":true}} /-->', '', $content);
+        $content = str_replace('<!-- wp:post-featured-image {"align":"wide","className":"post-template\u002d\u002dfeatured-image","lock":{"remove":true,"move":true}} /-->', '', $content);
     }
     return $content;
 }, 1);

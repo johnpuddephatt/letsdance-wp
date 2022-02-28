@@ -1,6 +1,15 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@import 'fonts';
-@import 'project-template';
+@import "fonts";
+@import "project-template";
+@import "post-template";
+
+body {
+  letter-spacing: -0.025rem;
+}
+
+.font-serif {
+  letter-spacing: 0;
+}

@@ -1,7 +1,7 @@
-@import 'global';
-@import 'gutenberg';
-@import 'animations';
-@import 'transitions';
+@import "global";
+@import "gutenberg";
+@import "animations";
+@import "transitions";
 
 body {
   overflow-y: scroll;
@@ -16,16 +16,30 @@ main {
 }
 
 .underline-thin {
+  text-decoration: underline;
   text-decoration-thickness: 1px;
 }
 
 .underline-thick {
-  text-decoration-thickness: 0.15em;
-  text-underline-offset: 0.15em;
-  text-decoration-color: transparentize($color: #3e23e9, $amount: 0.9);
+  text-decoration: underline;
+  text-decoration-thickness: 0.25em;
+  text-underline-offset: 0.25em;
+  transition: text-decoration 1s ease;
+  text-decoration-color: transparent;
 
   &:hover {
-    text-decoration-color: transparentize($color: #3e23e9, $amount: 0.65);
+    text-decoration-color: transparentize($color: #b0eee1, $amount: 0.6);
+  }
+
+  &--medium {
+    text-decoration-color: transparentize($color: #b0eee1, $amount: 0.6);
+    &:hover {
+      text-decoration-color: transparentize($color: #b0eee1, $amount: 0);
+    }
+  }
+
+  &--dark {
+    text-decoration-color: transparentize($color: #b0eee1, $amount: 0);
   }
 }
 
@@ -45,6 +59,12 @@ main {
   @apply translate-x-0 #{!important};
 }
 
+.post-item {
+  &:nth-child(2n) {
+    transition-delay: 200ms;
+  }
+}
+
 .project-item {
   &:nth-child(2n) {
     transition-delay: 200ms;
@@ -61,4 +81,12 @@ main {
 
 .has-play-button {
   background-image: url();
+}
+
+.menu-item a {
+  @extend .underline-thick;
+}
+
+.menu-item.current-menu-item a {
+  @extend .underline-thick--dark;
 }

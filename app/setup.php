@@ -293,6 +293,68 @@ function create_slide_post_type()
 
 add_action('init', 'App\create_slide_post_type');
 
+
+function slug_post_type_template() {
+	$page_type_object = get_post_type_object( 'post' );
+	$page_type_object->template = [
+		['core/post-featured-image',
+                [
+                    'className' => 'post-template--featured-image',
+                    'align' => 'wide',
+                    'lock' => ['remove' => true, 'move' => true]
+                ]
+            ],
+            ['core/group',
+                [
+                    'align' => 'wide',
+                    'className' => 'post-template--header',
+                    'lock' => ['remove' => true, 'move' => true]
+                ],
+                [
+                    ['core/post-title',
+                        [
+
+                            'className' => 'post-template--title',
+                            'lock' => ['remove' => true, 'move' => true]
+                        ]
+                    ],
+                    ['core/post-excerpt',
+                        [
+                            'className' => 'post-template--excerpt',
+                            'moreText' => 'null',
+                            'showMoreOnNewLine' => true,
+                            'lock' => ['remove' => true, 'move' => true]
+                        ]
+                    ],
+                    ['core/group',
+                        [
+                            'align' => 'wide',
+                            'className' => 'post-template--byline',
+                            'lock' => ['remove' => true, 'move' => true]
+                        ],
+                        [
+                            ['core/post-author',
+                                [
+
+                                    'className' => 'post-template--author',
+                                    'lock' => ['remove' => true, 'move' => true]
+                                ]
+                            ],
+                            ['core/post-date',
+                                [
+
+                                    'className' => 'post-template--date',
+                                    'lock' => ['remove' => true, 'move' => true]
+                                ]
+                            ],
+                        ]
+                    ]
+                ]
+            ],
+	];
+}
+add_action( 'init', 'App\slug_post_type_template' );
+
 function create_project_post_type()
 {
     register_post_type('project', array(

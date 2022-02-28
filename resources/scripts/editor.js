@@ -23,4 +23,15 @@ domReady(() => {
       }
     }
   });
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      let excerpt = document.querySelector(
+        '.wp-block-post-excerpt div.block-editor-rich-text__editable'
+      );
+      if (excerpt && excerpt.innerText == 'No post excerpt found') {
+        excerpt.innerText = '...';
+      }
+    }, 500);
+  });
 });

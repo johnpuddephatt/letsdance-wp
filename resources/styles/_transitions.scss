@@ -25,7 +25,7 @@ $duration: 500ms; // revert to 500
 .slide-down {
   &-leave-to,
   &-enter-to {
-    @apply transform translate-x-0 fixed top-0 left-0 right-0 transition duration-[#{$duration }];
+    @apply duration-[#{$duration }] fixed top-0 left-0 right-0 translate-x-0 transform transition;
   }
 
   &-enter {
@@ -39,7 +39,7 @@ $duration: 500ms; // revert to 500
  */
 
 .slide-right-enter {
-  @apply transform -translate-x-full;
+  @apply -translate-x-full transform;
 }
 
 .slide-right-enter-active,
@@ -48,16 +48,16 @@ $duration: 500ms; // revert to 500
 }
 
 .slide-right-leave-to {
-  @apply transform translate-x-full;
+  @apply translate-x-full transform;
 }
 
 .slide-left-leave-to {
-  @apply transform -translate-x-full;
+  @apply -translate-x-full transform;
   @apply delay-500 #{!important};
 }
 
 .slide-left-enter {
-  @apply transform translate-x-full;
+  @apply translate-x-full transform;
 }
 
 // Inner container
@@ -70,7 +70,7 @@ $duration: 500ms; // revert to 500
 
 .slide-right-enter-active {
   .container {
-    @apply transform translate-y-12 opacity-0 duration-0 #{ !important };
+    @apply translate-y-12 transform opacity-0 duration-0 #{!important};
   }
 }
 
@@ -106,7 +106,7 @@ $duration: 500ms; // revert to 500
 .project-close {
   &-leave-to,
   &-enter-to {
-    @apply transform translate-x-0 fixed top-0 left-0 right-0 transition duration-[#{$duration }];
+    @apply duration-[#{$duration }] fixed top-0 left-0 right-0 translate-x-0 transform transition delay-200;
   }
 
   &-enter {
@@ -117,23 +117,34 @@ $duration: 500ms; // revert to 500
   }
 }
 
-// .project-close-enter-active,
-// .project-close-leave-active {
-//   @apply delay-200 #{!important};
-// }
+.project-close-enter-active,
+.project-close-leave-active {
+  @apply delay-200 #{!important};
+}
 
 .project-close-leave-to {
-  @apply transform translate-x-full;
+  @apply translate-x-full transform;
+
+  #site-header {
+    @apply opacity-0;
+  }
 }
 
 .project-open-leave-to {
-  @apply transform -translate-x-full;
+  @apply -translate-x-full transform;
+
+  #site-header {
+    @apply opacity-0 transition duration-200;
+  }
 }
 
 .project-open-enter {
-  @apply transform translate-x-full left-0 right-0;
+  @apply left-0 right-0 translate-x-full transform;
+  // #site-header {
+  //   @apply opacity-0 transition-none;
+  // }
 }
 
 .project-close-enter {
-  @apply transform -translate-x-full left-0 right-0;
+  @apply left-0 right-0 -translate-x-full transform;
 }

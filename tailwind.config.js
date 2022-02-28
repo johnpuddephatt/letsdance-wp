@@ -15,7 +15,7 @@ module.exports = {
       center: true,
 
       padding: {
-        DEFAULT: '1rem',
+        DEFAULT: '0.75rem',
         sm: '1.5rem',
         lg: '2rem',
         xl: '2.5rem',
@@ -27,8 +27,8 @@ module.exports = {
         portrait: { raw: '(orientation: portrait)' },
       },
       colors: {
-        blue: '#3e23e9',
-        cyan: '#b0eee1',
+        blue: '#3e2dec',
+        cyan: '#8ff4d7',
         pink: '#fecdd3',
       },
       transitionDuration: {
