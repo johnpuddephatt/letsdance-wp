@@ -79,6 +79,10 @@
   }
 }
 
+.wp-block-gallery.has-nested-images figure.wp-block-image {
+  margin-bottom: 0 !important;
+}
+
 .wp-block-quote,
 .wp-block-pullquote {
   @apply border-none py-8 text-center lg:py-16;
