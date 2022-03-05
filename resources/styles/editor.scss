@@ -1,9 +1,9 @@
-@import 'global';
+@import "global";
 
 body {
-  @apply prose;
+  @apply prose lg:prose-lg xl:prose-xl;
   max-width: none !important;
-  @apply font-sans text-gray-700 leading-normal;
+  @apply font-sans leading-normal text-gray-700;
 }
 
 .edit-post-visual-editor__post-title-wrapper,
@@ -16,10 +16,10 @@ body {
   @apply relative bg-gray-100;
 
   .block-editor-media-placeholder {
-    @apply absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-lg;
+    @apply absolute left-1/2 top-1/2 max-w-lg -translate-x-1/2 -translate-y-1/2 transform;
   }
 
   img {
-    @apply inset-0 h-full w-full absolute object-cover object-center;
+    @apply absolute inset-0 h-full w-full object-cover object-center;
   }
 }
