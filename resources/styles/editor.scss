@@ -20,6 +20,10 @@ body
   display: none;
 }
 
+.aligncenter {
+  @apply mx-auto max-w-3xl 2xl:max-w-4xl;
+}
+
 .wp-block-post-featured-image {
   padding-top: 50%;
   @apply relative bg-gray-100;
