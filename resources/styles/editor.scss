@@ -6,10 +6,10 @@ body {
   @apply font-sans leading-normal text-gray-700;
 }
 
-.editor-styles-wrapper
+body
   .edit-post-visual-editor__post-title-wrapper
   > :where(:not(.alignleft):not(.alignright)),
-.editor-styles-wrapper
+body
   .block-editor-block-list__layout.is-root-container
   > :where(:not(.alignleft):not(.alignright)) {
   @apply max-w-3xl 2xl:max-w-4xl;
