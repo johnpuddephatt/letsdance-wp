@@ -44,15 +44,15 @@
 }
 
 .page-content {
+  &.aligncenter {
+    @apply mx-auto max-w-3xl 2xl:max-w-4xl;
+  }
+
   & > * {
     @apply mx-auto max-w-3xl 2xl:max-w-4xl;
 
     &.alignwide {
       @apply max-w-none;
-    }
-
-    &.aligncenter {
-      @apply mx-auto max-w-3xl 2xl:max-w-4xl;
     }
 
     &.alignfull {
