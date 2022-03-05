@@ -44,7 +44,7 @@
 }
 
 .page-content {
-  &.aligncenter {
+  .aligncenter {
     @apply mx-auto max-w-3xl 2xl:max-w-4xl;
   }
 
