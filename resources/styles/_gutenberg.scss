@@ -56,7 +56,7 @@
       width: calc(100% + (100vw - 100%));
       margin-left: calc(50% - 50vw) !important;
 
-      img {
+      &.wp-block-image img {
         @apply rounded-none #{!important};
       }
     }
@@ -116,4 +116,8 @@
 .aligncenter .wp-block-embed__wrapper > div {
   margin-left: auto;
   margin-right: auto;
+}
+
+.wp-block-image:last-child {
+  margin-bottom: 0 !important;
 }
