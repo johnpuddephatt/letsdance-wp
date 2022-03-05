@@ -95,7 +95,7 @@
 .wp-block-pullquote {
   @apply border-none py-8 text-center lg:py-16;
   p {
-    @apply my-6 font-serif text-2xl leading-tight text-gray-700 antialiased lg:text-4xl lg:leading-tight xl:text-5xl;
+    @apply my-6 font-serif text-2xl leading-tight text-gray-700 antialiased lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight;
   }
   cite {
     @apply text-lg font-semibold normal-case text-gray-700 antialiased;
