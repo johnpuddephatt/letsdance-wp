@@ -212,6 +212,8 @@ barba.init({
         );
       },
       afterEnter(e) {
+        let imageMask = document.querySelector(".project-image-mask");
+
         let imageMaskTarget = document.querySelector(
           `a[href*="${e.current.url.path}"] img`
         );
@@ -221,18 +223,20 @@ barba.init({
             document.querySelector("main header").clientHeight
           : 0;
 
+        if (!imageMask) return null;
+
         if (imageMaskTarget) {
           if (imageMaskTarget.complete) {
             imageMaskTarget.style.visibility = "visible";
-            document.querySelector(".project-image-mask").remove();
+            imageMask.remove();
           } else {
             imageMaskTarget.addEventListener("load", () => {
               imageMaskTarget.style.visibility = "visible";
-              document.querySelector(".project-image-mask").remove();
+              imageMask.remove();
             });
           }
         } else {
-          document.querySelector(".project-image-mask").remove();
+          imageMask.remove();
         }
       },
       // afterLeave(e) {
