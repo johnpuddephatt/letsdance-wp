@@ -46,6 +46,7 @@ export default function (config, barbaEvent) {
       config.mode == "update" &&
       config.transition == "project-close"
     ) {
+      console.log(config.target.parentNode.offsetTop);
       console.log("modY: ", config.target.parentNode.offsetTop);
       console.log(
         "main header: ",
