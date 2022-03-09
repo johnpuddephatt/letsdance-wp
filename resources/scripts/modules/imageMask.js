@@ -46,6 +46,11 @@ export default function (config, barbaEvent) {
       config.mode == "update" &&
       config.transition == "project-close"
     ) {
+      console.log("modY: ", config.target.parentNode.offsetTop);
+      console.log(
+        "main header: ",
+        document.querySelector("main header").clientHeight
+      );
       modY = config.target.parentNode.offsetTop;
       barbaEvent.next.container.style.top = `-${
         modY - document.querySelector("main header").clientHeight
