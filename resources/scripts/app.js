@@ -176,6 +176,7 @@ barba.init({
         } else {
           document.querySelector(".project-image-mask").remove();
         }
+        document.body.style.overflowY = "scroll";
       },
       to: {
         namespace: ["project", "post"],
@@ -238,6 +239,7 @@ barba.init({
         } else {
           imageMask.remove();
         }
+        document.body.style.overflowY = "scroll";
       },
       // afterLeave(e) {
       // barba.wrapper.scrollTop = 0;
