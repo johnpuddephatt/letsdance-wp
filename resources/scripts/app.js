@@ -116,6 +116,7 @@ barba.init({
       before(e) {
         e.current.container.style.top =
           -document.documentElement.scrollTop + "px";
+        document.documentElement.scrollTop = 0;
 
         // fixSizesAttribute();
 
@@ -185,6 +186,7 @@ barba.init({
       before(e) {
         e.current.container.style.top =
           -document.documentElement.scrollTop + "px";
+        document.documentElement.scrollTop = 0;
 
         // imageMask({
         //   target: document.querySelector(
