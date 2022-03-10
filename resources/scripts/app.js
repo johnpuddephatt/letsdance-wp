@@ -183,6 +183,9 @@ barba.init({
         // fadeInProjectImages();
       },
       before(e) {
+        e.current.container.style.top =
+          -document.documentElement.scrollTop + "px";
+
         // imageMask({
         //   target: document.querySelector(
         //     `.${e.current.namespace}-template--featured-image`
@@ -192,16 +195,16 @@ barba.init({
         // },e);
       },
       beforeEnter(e) {
-        // let imageMaskTarget = document.querySelector(
-        //   `a[href*="${e.current.url.path}"] img`
-        // );
-        // // scroll 'next' to bring target into view when closing.
-        // if (imageMaskTarget) {
-        //   e.next.container.style.top = `-${
-        //     imageMaskTarget.parentNode.offsetTop -
-        //     document.querySelector("main header").clientHeight
-        //   }px`;
-        // }
+        let imageMaskTarget = document.querySelector(
+          `a[href*="${e.current.url.path}"] img`
+        );
+        // scroll 'next' to bring target into view when closing.
+        if (imageMaskTarget) {
+          e.next.container.style.top = `-${
+            imageMaskTarget.parentNode.offsetTop -
+            document.querySelector("main header").clientHeight
+          }px`;
+        }
         // imageMask({
         //   target: imageMaskTarget,
         //   mode: "update",
@@ -210,13 +213,13 @@ barba.init({
       },
       afterEnter(e) {
         // let imageMask = document.querySelector(".project-image-mask");
-        // let imageMaskTarget = document.querySelector(
-        //   `a[href*="${e.current.url.path}"] img`
-        // );
-        // document.documentElement.scrollTop = imageMaskTarget
-        //   ? imageMaskTarget.parentNode.offsetTop -
-        //     document.querySelector("main header").clientHeight
-        //   : 0;
+        let imageMaskTarget = document.querySelector(
+          `a[href*="${e.current.url.path}"] img`
+        );
+        document.documentElement.scrollTop = imageMaskTarget
+          ? imageMaskTarget.parentNode.offsetTop -
+            document.querySelector("main header").clientHeight
+          : 0;
         // if (!imageMask) return null;
         // if (imageMaskTarget) {
         //   if (imageMaskTarget.complete) {
