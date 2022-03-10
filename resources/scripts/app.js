@@ -37,6 +37,7 @@ barba.hooks.beforeEnter((data) => {
 
 barba.init({
   debug: true,
+  timeout: 5000,
   views: [
     {
       namespace: "home",
@@ -77,7 +78,7 @@ barba.init({
         namespace: "home",
       },
       to: {
-        namespace: "standard",
+        namespace: ["index", "standard"],
       },
     },
     {
@@ -87,7 +88,7 @@ barba.init({
       leave() {},
       enter() {},
       from: {
-        namespace: ["project", "standard"],
+        namespace: ["project", "standard", "index"],
       },
       to: {
         namespace: "home",
@@ -113,76 +114,63 @@ barba.init({
         fadeInProjectImages();
       },
       before(e) {
-        // // e.current.container.style.top =
-        // //   -document.documentElement.scrollTop + "px";
+        e.current.container.style.top =
+          -document.documentElement.scrollTop + "px";
 
-        fixSizesAttribute();
-        var imageElement =
-          e.trigger.classList &&
-          (e.trigger.classList.contains("project-item") ||
-            e.trigger.classList.contains("post-item"))
-            ? e.trigger.querySelector("img")
-            : document.querySelector(`a[href*="${e.next.url.href}"] img`);
+        // fixSizesAttribute();
 
-        if (imageElement) {
-          imageMask(
-            {
-              target: imageElement,
-              mode: "create",
-              transition: "project-open",
-            },
-            e
-          );
-        }
+        // imageMask(
+        //   {
+        //     target: e.trigger.querySelector("img"),
+        //     mode: "create",
+        //     transition: "project-open",
+        //   },
+        //   e
+        // );
       },
       beforeEnter(e) {
-        // e.next.container.style.transform = `translateY(-${
-        //   document.getElementById("site-header").clientHeight
-        // }px)`;
         e.next.container.style.top = `-${
           document.getElementById("site-header").clientHeight
         }px`;
         fadeInProjectImages();
         fixSizesAttribute();
-        imageMask({
-          target: document.querySelector(
-            `.${e.next.namespace}-template--featured-image`
-          ),
-          mode: "update",
-          transition: "project-open",
-        });
+        // imageMask({
+        //   target: document.querySelector(
+        //     `.${e.next.namespace}-template--featured-image`
+        //   ),
+        //   mode: "update",
+        //   transition: "project-open",
+        // });
       },
 
       afterEnter(e) {
-        // e.next.container.style.transform = "translateY(0px)";
-        e.next.container.style.top = "0px";
         document.documentElement.scrollTop =
           document.getElementById("site-header").clientHeight;
+        e.next.container.style.top = "0px";
 
-        let imageMaskTarget = document.querySelector(
-          `.${e.next.namespace}-template--featured-image`
-        );
-
-        if (imageMaskTarget) {
-          if (imageMaskTarget.complete) {
-            imageMaskTarget.style.visibility = "visible";
-            document.querySelector(".project-image-mask").remove();
-          } else {
-            imageMaskTarget.addEventListener("load", () => {
-              imageMaskTarget.style.visibility = "visible";
-              document.querySelector(".project-image-mask").remove();
-            });
-          }
-        } else {
-          document.querySelector(".project-image-mask").remove();
-        }
+        // let imageMaskTarget = document.querySelector(
+        //   `.${e.next.namespace}-template--featured-image`
+        // );
+        // if (imageMaskTarget) {
+        //   if (imageMaskTarget.complete) {
+        //     imageMaskTarget.style.visibility = "visible";
+        //     document.querySelector(".project-image-mask").remove();
+        //   } else {
+        //     imageMaskTarget.addEventListener("load", () => {
+        //       imageMaskTarget.style.visibility = "visible";
+        //       document.querySelector(".project-image-mask").remove();
+        //     });
+        //   }
+        // } else {
+        //   document.querySelector(".project-image-mask").remove();
+        // }
         document.body.style.overflowY = "scroll";
       },
       to: {
         namespace: ["project", "post"],
       },
       from: {
-        namespace: ["standard"],
+        namespace: ["index"],
       },
     },
     {
@@ -192,54 +180,55 @@ barba.init({
       leave() {},
       enter() {},
       before(e) {
-        imageMask({
-          target: document.querySelector(
-            `.${e.current.namespace}-template--featured-image`
-          ),
-          mode: "create",
-          transition: "project-close",
-        });
+        // imageMask({
+        //   target: document.querySelector(
+        //     `.${e.current.namespace}-template--featured-image`
+        //   ),
+        //   mode: "create",
+        //   transition: "project-close",
+        // },e);
       },
       beforeEnter(e) {
-        imageMask(
-          {
-            target: document.querySelector(
-              `a[href*="${e.current.url.path}"] img`
-            ),
-            mode: "update",
-            transition: "project-close",
-          },
-          e
-        );
+        // let imageMaskTarget = document.querySelector(
+        //   `a[href*="${e.current.url.path}"] img`
+        // );
+        // // scroll 'next' to bring target into view when closing.
+        // if (imageMaskTarget) {
+        //   e.next.container.style.top = `-${
+        //     imageMaskTarget.parentNode.offsetTop -
+        //     document.querySelector("main header").clientHeight
+        //   }px`;
+        // }
+        // imageMask({
+        //   target: imageMaskTarget,
+        //   mode: "update",
+        //   transition: "project-close",
+        // },e);
       },
       afterEnter(e) {
-        let imageMask = document.querySelector(".project-image-mask");
-
-        let imageMaskTarget = document.querySelector(
-          `a[href*="${e.current.url.path}"] img`
-        );
-
-        document.documentElement.scrollTop = imageMaskTarget
-          ? imageMaskTarget.parentNode.offsetTop -
-            document.querySelector("main header").clientHeight
-          : 0;
-
-        if (!imageMask) return null;
-
-        if (imageMaskTarget) {
-          if (imageMaskTarget.complete) {
-            imageMaskTarget.style.visibility = "visible";
-            imageMask.remove();
-          } else {
-            imageMaskTarget.addEventListener("load", () => {
-              imageMaskTarget.style.visibility = "visible";
-              imageMask.remove();
-            });
-          }
-        } else {
-          imageMask.remove();
-        }
-        document.body.style.overflowY = "scroll";
+        // let imageMask = document.querySelector(".project-image-mask");
+        // let imageMaskTarget = document.querySelector(
+        //   `a[href*="${e.current.url.path}"] img`
+        // );
+        // document.documentElement.scrollTop = imageMaskTarget
+        //   ? imageMaskTarget.parentNode.offsetTop -
+        //     document.querySelector("main header").clientHeight
+        //   : 0;
+        // if (!imageMask) return null;
+        // if (imageMaskTarget) {
+        //   if (imageMaskTarget.complete) {
+        //     imageMaskTarget.style.visibility = "visible";
+        //     imageMask.remove();
+        //   } else {
+        //     imageMaskTarget.addEventListener("load", () => {
+        //       imageMaskTarget.style.visibility = "visible";
+        //       imageMask.remove();
+        //     });
+        //   }
+        // } else {
+        //   imageMask.remove();
+        // }
+        // document.body.style.overflowY = "scroll";
       },
       // afterLeave(e) {
       // barba.wrapper.scrollTop = 0;
@@ -248,7 +237,7 @@ barba.init({
         namespace: ["project", "post"],
       },
       to: {
-        namespace: ["standard"],
+        namespace: ["index"],
       },
     },
   ],

@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content') @include('partials.header')
+@extends('layouts.app', ['type' => 'index']) @section('content')
+@include('partials.header')
 
 <div
   class="container relative my-16 space-y-16 lg:my-24 lg:space-y-24 xl:max-w-7xl 2xl:my-64"

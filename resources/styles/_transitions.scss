@@ -106,15 +106,21 @@ $duration: 500ms; // revert to 500
 .project-close {
   &-leave-to,
   &-enter-to {
-    @apply duration-[#{$duration }] fixed top-0 left-0 right-0 translate-x-0 transform transition delay-200;
+    @apply fixed top-0 left-0 right-0 translate-x-0 transform transition delay-200 duration-[#{$duration}];
   }
 
   &-enter {
-    top: 0;
-    position: fixed;
+    @apply fixed top-0 left-0 right-0 translate-x-full transform opacity-0;
     z-index: -999;
-    opacity: 0;
   }
+}
+
+.project-open-enter {
+  @apply translate-x-full;
+}
+
+.project-close-enter {
+  @apply -translate-x-full;
 }
 
 .project-close-enter-active,
@@ -126,7 +132,7 @@ $duration: 500ms; // revert to 500
   @apply translate-x-full transform;
 
   #site-header {
-    @apply opacity-0;
+    @apply opacity-0 transition duration-200;
   }
 }
 
@@ -136,15 +142,4 @@ $duration: 500ms; // revert to 500
   #site-header {
     @apply opacity-0 transition duration-200;
   }
-}
-
-.project-open-enter {
-  @apply left-0 right-0 translate-x-full transform;
-  // #site-header {
-  //   @apply opacity-0 transition-none;
-  // }
-}
-
-.project-close-enter {
-  @apply left-0 right-0 -translate-x-full transform;
 }
