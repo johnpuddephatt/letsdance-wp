@@ -179,6 +179,9 @@ barba.init({
       once() {},
       leave() {},
       enter() {},
+      beforeOnce() {
+        // fadeInProjectImages();
+      },
       before(e) {
         // imageMask({
         //   target: document.querySelector(
@@ -230,9 +233,9 @@ barba.init({
         // }
         // document.body.style.overflowY = "scroll";
       },
-      // afterLeave(e) {
-      // barba.wrapper.scrollTop = 0;
-      // },
+      afterLeave(e) {
+        // barba.wrapper.scrollTop = 0;
+      },
       from: {
         namespace: ["project", "post"],
       },
