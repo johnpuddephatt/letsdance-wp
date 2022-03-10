@@ -116,7 +116,6 @@ barba.init({
       before(e) {
         e.current.container.style.top =
           -document.documentElement.scrollTop + "px";
-        document.documentElement.scrollTop = 0;
 
         // fixSizesAttribute();
 
@@ -165,7 +164,7 @@ barba.init({
         // } else {
         //   document.querySelector(".project-image-mask").remove();
         // }
-        document.body.style.overflowY = "scroll";
+        // document.body.style.overflowY = "scroll";
       },
       to: {
         namespace: ["project", "post"],
@@ -186,7 +185,6 @@ barba.init({
       before(e) {
         e.current.container.style.top =
           -document.documentElement.scrollTop + "px";
-        document.documentElement.scrollTop = 0;
 
         // imageMask({
         //   target: document.querySelector(
@@ -215,13 +213,13 @@ barba.init({
       },
       afterEnter(e) {
         // let imageMask = document.querySelector(".project-image-mask");
-        let imageMaskTarget = document.querySelector(
-          `a[href*="${e.current.url.path}"] img`
-        );
-        document.documentElement.scrollTop = imageMaskTarget
-          ? imageMaskTarget.parentNode.offsetTop -
-            document.querySelector("main header").clientHeight
-          : 0;
+        // let imageMaskTarget = document.querySelector(
+        //   `a[href*="${e.current.url.path}"] img`
+        // );
+        // document.documentElement.scrollTop = imageMaskTarget
+        //   ? imageMaskTarget.parentNode.offsetTop -
+        //     document.querySelector("main header").clientHeight
+        //   : 0;
         // if (!imageMask) return null;
         // if (imageMaskTarget) {
         //   if (imageMaskTarget.complete) {
