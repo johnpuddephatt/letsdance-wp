@@ -142,9 +142,10 @@ barba.init({
       },
 
       afterEnter(e) {
-        // document.documentElement.scrollTop =
-        //   document.getElementById("site-header").clientHeight;
-        // e.next.container.style.top = "auto";
+        document.documentElement.scrollTop =
+          document.getElementById("site-header").clientHeight;
+        e.next.container.style.top = "auto";
+
         // let imageMaskTarget = document.querySelector(
         //   `.${e.next.namespace}-template--featured-image`
         // );
