@@ -111,14 +111,12 @@ barba.init({
       leave() {},
       enter() {},
       beforeOnce() {
-        fadeInProjectImages();
+        // fadeInProjectImages();
       },
       before(e) {
-        e.current.container.style.top =
-          -document.documentElement.scrollTop + "px";
-
+        // e.current.container.style.top =
+        //   -document.documentElement.scrollTop + "px";
         // fixSizesAttribute();
-
         // imageMask(
         //   {
         //     target: e.trigger.querySelector("img"),
@@ -132,8 +130,8 @@ barba.init({
         e.next.container.style.top = `-${
           document.getElementById("site-header").clientHeight
         }px`;
-        fadeInProjectImages();
-        fixSizesAttribute();
+        // fadeInProjectImages();
+        // fixSizesAttribute();
         // imageMask({
         //   target: document.querySelector(
         //     `.${e.next.namespace}-template--featured-image`
@@ -144,10 +142,9 @@ barba.init({
       },
 
       afterEnter(e) {
-        document.documentElement.scrollTop =
-          document.getElementById("site-header").clientHeight;
-        e.next.container.style.top = "0px";
-
+        // document.documentElement.scrollTop =
+        //   document.getElementById("site-header").clientHeight;
+        // e.next.container.style.top = "auto";
         // let imageMaskTarget = document.querySelector(
         //   `.${e.next.namespace}-template--featured-image`
         // );
@@ -183,9 +180,8 @@ barba.init({
         // fadeInProjectImages();
       },
       before(e) {
-        e.current.container.style.top =
-          -document.documentElement.scrollTop + "px";
-
+        // e.current.container.style.top =
+        //   -document.documentElement.scrollTop + "px";
         // imageMask({
         //   target: document.querySelector(
         //     `.${e.current.namespace}-template--featured-image`
@@ -195,16 +191,16 @@ barba.init({
         // },e);
       },
       beforeEnter(e) {
-        let imageMaskTarget = document.querySelector(
-          `a[href*="${e.current.url.path}"] img`
-        );
-        // scroll 'next' to bring target into view when closing.
-        if (imageMaskTarget) {
-          e.next.container.style.top = `-${
-            imageMaskTarget.parentNode.offsetTop -
-            document.querySelector("main header").clientHeight
-          }px`;
-        }
+        // let imageMaskTarget = document.querySelector(
+        //   `a[href*="${e.current.url.path}"] img`
+        // );
+        // // scroll 'next' to bring target into view when closing.
+        // if (imageMaskTarget) {
+        //   e.next.container.style.top = `-${
+        //     imageMaskTarget.parentNode.offsetTop -
+        //     document.querySelector("main header").clientHeight
+        //   }px`;
+        // }
         // imageMask({
         //   target: imageMaskTarget,
         //   mode: "update",
