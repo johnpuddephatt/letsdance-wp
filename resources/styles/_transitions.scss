@@ -4,12 +4,18 @@ $duration: 500ms; // revert to 500
 .slide-left,
 .slide-right,
 .slide-up,
-.slide-down,
+.slide-down {
+  &-leave-active,
+  &-enter-active {
+    @apply transition duration-[#{$duration}];
+  }
+}
+
 .project-open,
 .project-close {
   &-leave-active,
   &-enter-active {
-    @apply transition duration-[#{$duration}];
+    @apply transition-transform duration-[#{$duration}];
   }
 }
 
@@ -104,23 +110,39 @@ $duration: 500ms; // revert to 500
 
 .project-open,
 .project-close {
-  &-leave-to,
+  &-enter-active {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    // transform: translateX(9999px);
+  }
+
   &-enter-to {
-    @apply absolute left-0 right-0 translate-x-0 transform transition delay-200 duration-[#{$duration}];
-  }
-
-  &-enter {
-    @apply absolute left-0 right-0 translate-x-full transform opacity-0;
-    z-index: -999;
+    opacity: 1;
   }
 }
 
+.project-close-enter,
 .project-open-enter {
-  @apply translate-x-full;
+  opacity: 0;
 }
 
-.project-close-enter {
-  @apply -translate-x-full;
+.project-close-enter,
+.project-open-leave-to {
+  transform: translateX(-100%);
+}
+
+.project-close-leave-to,
+.project-open-enter {
+  transform: translateX(100%);
+}
+
+.project-close-enter-to,
+.project-close-leave-to {
+  @apply delay-200;
 }
 
 .project-close-enter-active,
@@ -128,18 +150,52 @@ $duration: 500ms; // revert to 500
   @apply delay-200 #{!important};
 }
 
-.project-close-leave-to {
-  @apply translate-x-full transform;
-
-  #site-header {
-    @apply opacity-0 transition duration-200;
-  }
-}
-
+.project-close-leave-to,
 .project-open-leave-to {
-  @apply -translate-x-full transform;
-
   #site-header {
     @apply opacity-0 transition duration-200;
   }
 }
+
+// .project-open,
+// .project-close {
+
+//   &-leave-to,
+//   &-enter-to {
+//     @apply absolute left-0 right-0 translate-x-0 transform transition delay-200 duration-[#{$duration}];
+//   }
+
+//   &-enter {
+//     @apply absolute left-0 right-0 translate-x-full transform opacity-0;
+//     z-index: -999;
+//   }
+// }
+
+// .project-open-enter {
+//   @apply translate-x-full;
+// }
+
+// .project-close-enter {
+//   @apply -translate-x-full;
+// }
+
+// .project-close-enter-active,
+// .project-close-leave-active {
+//   @apply delay-200 #{!important};
+// }
+
+// .project-close-leave-to {
+//   @apply translate-x-full transform;
+
+//   #site-header {
+//     @apply opacity-0 transition duration-200;
+//   }
+// }
+
+// .project-open-leave-to {
+//   @apply -translate-x-full transform;
+
+//   #site-header {
+//     @apply opacity-0 transition duration-200;
+//   }
+// }

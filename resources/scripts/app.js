@@ -37,7 +37,7 @@ barba.hooks.beforeEnter((data) => {
 
 barba.init({
   debug: true,
-  timeout: 5000,
+  timeout: 12000,
   views: [
     {
       namespace: "home",
@@ -127,9 +127,9 @@ barba.init({
         // );
       },
       beforeEnter(e) {
-        e.next.container.style.top = `-${
-          document.getElementById("site-header").clientHeight
-        }px`;
+        // e.next.container.style.top = `-${
+        //   document.getElementById("site-header").clientHeight
+        // }px`;
         // fadeInProjectImages();
         // fixSizesAttribute();
         // imageMask({
@@ -142,10 +142,9 @@ barba.init({
       },
 
       afterEnter(e) {
-        document.documentElement.scrollTop =
-          document.getElementById("site-header").clientHeight;
-        e.next.container.style.top = "auto";
-
+        // document.documentElement.scrollTop =
+        //   document.getElementById("site-header").clientHeight;
+        // e.next.container.style.removeProperty("top");
         // let imageMaskTarget = document.querySelector(
         //   `.${e.next.namespace}-template--featured-image`
         // );
