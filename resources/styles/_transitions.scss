@@ -1,5 +1,9 @@
 $duration: 500ms; // revert to 500
 
+main + main {
+  position: fixed;
+  left: 9999999px;
+}
 // .fade,
 .slide-left,
 .slide-right,

@@ -127,9 +127,9 @@ barba.init({
         // );
       },
       beforeEnter(e) {
-        // e.next.container.style.top = `-${
-        //   document.getElementById("site-header").clientHeight
-        // }px`;
+        e.next.container.style.top = `-${
+          document.getElementById("site-header").clientHeight
+        }px`;
         // fadeInProjectImages();
         // fixSizesAttribute();
         // imageMask({
@@ -142,9 +142,9 @@ barba.init({
       },
 
       afterEnter(e) {
-        // document.documentElement.scrollTop =
-        //   document.getElementById("site-header").clientHeight;
-        // e.next.container.style.removeProperty("top");
+        document.documentElement.scrollTop =
+          document.getElementById("site-header").clientHeight;
+        e.next.container.style.removeProperty("top");
         // let imageMaskTarget = document.querySelector(
         //   `.${e.next.namespace}-template--featured-image`
         // );
@@ -233,7 +233,7 @@ barba.init({
         // document.body.style.overflowY = "scroll";
       },
       afterLeave(e) {
-        // barba.wrapper.scrollTop = 0;
+        // document.documentElement.scrollTop = 0;
       },
       from: {
         namespace: ["project", "post"],
