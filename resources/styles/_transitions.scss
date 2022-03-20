@@ -112,15 +112,10 @@ $duration: 500ms; // revert to 500
 .project-close {
   &-enter-active {
     z-index: 999;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    // transform: translateX(9999px);
-  }
-
-  &-enter-to {
-    opacity: 1;
   }
 }
 
@@ -139,15 +134,18 @@ $duration: 500ms; // revert to 500
   transform: translateX(100%);
 }
 
-.project-open-enter {
-  transition: none !important;
-}
+// .project-open-enter,
+// .project-close-enter {
+//   transition: none !important;
+// }
 
 .project-close-enter-to,
 .project-close-leave-to {
   @apply delay-200;
 }
 
+.project-open-enter-active,
+.project-open-leave-active,
 .project-close-enter-active,
 .project-close-leave-active {
   @apply delay-200 #{!important};
