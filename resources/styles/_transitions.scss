@@ -116,7 +116,6 @@ $duration: 500ms; // revert to 500
     top: 0;
     left: 0;
     right: 0;
-    opacity: 0;
     // transform: translateX(9999px);
   }
 
@@ -127,7 +126,7 @@ $duration: 500ms; // revert to 500
 
 .project-close-enter,
 .project-open-enter {
-  opacity: 0;
+  // opacity: 0;
 }
 
 .project-close-enter,
@@ -138,6 +137,10 @@ $duration: 500ms; // revert to 500
 .project-close-leave-to,
 .project-open-enter {
   transform: translateX(100%);
+}
+
+.project-open-enter {
+  transition: none !important;
 }
 
 .project-close-enter-to,
