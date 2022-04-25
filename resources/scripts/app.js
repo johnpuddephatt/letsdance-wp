@@ -111,12 +111,12 @@ barba.init({
       leave() {},
       enter() {},
       beforeOnce() {
-        // fadeInProjectImages();
+        fadeInProjectImages();
       },
       before(e) {
         // e.current.container.style.top =
         //   -document.documentElement.scrollTop + "px";
-        // fixSizesAttribute();
+        fixSizesAttribute();
         // imageMask(
         //   {
         //     target: e.trigger.querySelector("img"),
@@ -130,8 +130,8 @@ barba.init({
         e.next.container.style.top = `-${
           document.getElementById("site-header").clientHeight
         }px`;
-        // fadeInProjectImages();
-        // fixSizesAttribute();
+        fadeInProjectImages();
+        fixSizesAttribute();
         // imageMask({
         //   target: document.querySelector(
         //     `.${e.next.namespace}-template--featured-image`
@@ -177,7 +177,7 @@ barba.init({
       leave() {},
       enter() {},
       beforeOnce() {
-        // fadeInProjectImages();
+        fadeInProjectImages();
       },
       before(e) {
         // e.current.container.style.top =
