@@ -22,6 +22,10 @@ document.body.addEventListener("keyup", function (e) {
   }
 });
 
+document.body.addEventListener("DOMContentLoaded", function (e) {
+  fixSizesAttribute();
+});
+
 barba.hooks.beforeEnter((data) => {
   // don't run aos when exiting a single project/post page – it conflicts with the image Mask!
   if (
