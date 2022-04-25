@@ -22,7 +22,7 @@ document.body.addEventListener("keyup", function (e) {
   }
 });
 
-document.body.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function (e) {
   fixSizesAttribute();
 });
 
