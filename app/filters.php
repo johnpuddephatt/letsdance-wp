@@ -16,6 +16,8 @@ add_filter("excerpt_more", function () {
     // return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
 });
 
+add_filter("big_image_size_threshold", "__return_false");
+
 remove_filter("get_the_excerpt", "wp_trim_excerpt");
 
 add_filter("body_class", function ($classes) {
