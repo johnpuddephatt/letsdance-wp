@@ -10,7 +10,7 @@
 
   <div class="container">
     <div
-      class="page-content prose ml-auto mr-0 max-w-none lg:prose-lg xl:prose-xl"
+      class="page-content prose-headings:text-gray-700 prose lg:prose-lg xl:prose-xl ml-auto mr-0 max-w-none"
     >
       @php(the_content())
     </div>
