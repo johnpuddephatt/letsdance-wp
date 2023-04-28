@@ -11,12 +11,12 @@
     1024px) calc((1024ppx - 4rem) / 2), 90vw' ]) !!}
   </div>
   <h2
-    class="mt-4 mb-0.5 text-xl antialiased font-semibold leading-none text-black lg:mb-1 lg:text-2xl 2xl:text-3xl"
+    class="mt-4 mb-0.5 text-xl antialiased font-semibold leading-none text-black lg:mb-1 lg:text-xl 2xl:text-2xl"
   >
     {!! $project->post_title !!}
   </h2>
   <p
-    class="font-serif text-gray-800 text-lg antialiased leading-tight lg:leading-tight lg:text-2xl"
+    class="font-serif text-gray-800 text-lg antialiased leading-tight lg:leading-tight lg:text-xl"
   >
     {!! $project->post_excerpt !!}
   </p>
