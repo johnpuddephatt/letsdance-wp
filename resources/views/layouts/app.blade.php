@@ -4,7 +4,7 @@
     {{ __('Skip to content') }}
   </a>
 
-  @if(is_page_template( 'template-home.blade.php' ))
+  @if(is_page_template('template-home.blade.php'))
   @include('partials.loading')
   @endif
 
