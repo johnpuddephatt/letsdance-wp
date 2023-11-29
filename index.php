@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="/wp-includes/css/dist/block-library/style.min.css" />
+    
     <?php wp_head(); ?>
   </head>
 
@@ -16,5 +16,6 @@
     </div>
 
     <?php do_action('get_footer'); ?>
+    <?php wp_footer(); ?>
   </body>
 </html>
