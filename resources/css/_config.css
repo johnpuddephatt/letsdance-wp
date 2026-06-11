@@ -1,0 +1,65 @@
+@plugin "@tailwindcss/typography";
+
+@custom-variant portrait (@media (orientation: portrait));
+
+@theme {
+  --color-blue: #3e2dec;
+  --color-cyan: #8ff4d7;
+  --color-pink: #fecdd3;
+
+  --font-sans: Karla, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "Miller Display", ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+
+  --animate-rotate-hue: huerotation 2s linear infinite;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 2.5rem;
+  }
+  @media (min-width: 1536px) {
+    padding-inline: 3rem;
+  }
+}
+
+@utility duration-0 {
+  transition-duration: 0ms;
+}
+
+@utility delay-0 {
+  transition-delay: 0ms;
+}
+
+@utility scale-101 {
+  scale: 1.01;
+}
+
+@utility max-w-content {
+  max-width: var(--wp--style--global--content-size);
+}
+
+@utility max-w-wide {
+  max-width: var(--wp--style--global--wide-size);
+}
+
+@utility prose {
+  --tw-prose-headings: var(--color-gray-700);
+}
+
+@utility prose-light {
+  --tw-prose-body: #f3f4f6;
+  --tw-prose-headings: #ffffff;
+  --tw-prose-links: #ffffff;
+  --tw-prose-bold: #ffffff;
+}

@@ -1,32 +1,25 @@
-<header
-  id="site-header"
-  @if(isset($is_home) && $is_home)
-    class="bottom-0 left-0 right-0 z-40 transition delay-300 transform portrait:transition-none portrait:absolute portrait:bg-black portrait:bg-opacity-60 portrait:text-white"
+<header id="site-header"
+    @if (isset($is_home) && $is_home) class="bottom-0 left-0 right-0 z-40 transition delay-300 transform portrait:transition-none portrait:absolute portrait:bg-black/60 portrait:text-white"
   @else
-    class="z-40 bg-white"
-  @endif   "
-  :class="{'translate-y-full transition-none' : $store.siteLoading}"
+    class="z-40 bg-white" @endif "
+  :class="{ 'translate-y-full transition-none': $store.siteLoading }"
   role="banner"
 >
   <div class="container flex items-center justify-between h-20 max-w-none">
     <div class="flex items-center">
       <a
-        class="@if(isset($is_home) && $is_home)
-portrait:text-white
-@endif mr-3 flex items-center gap-1 text-lg font-bold leading-none text-gray-800 no-underline antialiased md:inline-flex lg:gap-2 lg:text-2xl "
+        class="@if (isset($is_home) && $is_home) portrait:text-white @endif mr-3 flex items-center gap-1 text-lg group font-bold leading-none text-gray-800 no-underline antialiased md:inline-flex lg:gap-2 lg:text-2xl "
         href="{{ home_url('/') }}"
       >
         <span
-          class="inline-block w-8 h-8 transition transform rounded-full hard-gradient bg-gradient-to-tl from-blue to-cyan hover:rotate-90 lg:h-8 lg:w-8"
+          class="inline-block w-8 h-8 transition transform rounded-full hard-gradient   bg-linear-to-tl from-blue to-cyan group-hover:rotate-90 lg:h-8 lg:w-8"
           aria-label="Back to home"
           href="/"
         ></span>
 
-        <div 
-        @if(isset($is_home) && $is_home)
-        @else
-          class="hidden md:block"
-        @endif
+        <div
+        @if (isset($is_home) && $is_home) @else
+          class="hidden md:block" @endif
         >
           <span> {{ $siteName }}</span>
           <span
@@ -36,16 +29,19 @@ portrait:text-white
         </div>
       </a>
     </div>
-    <div>
-      @if(has_nav_menu('primary_navigation'))
- {!! wp_nav_menu([ 'theme_location'
-      => 'primary_navigation', 'menu_class' => (isset($is_home) && $is_home) ?
-      'portrait:hidden text-gray-600 gap-4 antialiased lg:text-gray-800
-      font-bold lg:text-lg lowercase m-0 flex z-10 flex-row content-end' :
-      'text-gray-600 gap-4 antialiased lg:text-gray-800 font-bold
-      text-sm lg:text-lg lowercase m-0 flex z-10 flex-row content-end', 'echo'
-      => false]) !!}
-@endif
+    @php($navigation = \Log1x\Navi\Navi::make()->build('primary_navigation'))
+    <div class=>
+             @if ($navigation->isNotEmpty())
+    <ul
+        class="{{ isset($is_home) && $is_home ? 'portrait:hidden text-gray-600 gap-4 antialiased lg:text-gray-800 font-bold lg:text-lg lowercase m-0 flex z-10 flex-row content-end' : 'text-gray-600 gap-4 antialiased lg:text-gray-800 font-bold text-sm lg:text-lg lowercase m-0 flex z-10 flex-row content-end' }}">
+        @foreach ($navigation->toArray() as $item)
+            <li class="menu-item  block py-4 lg:py-0 lg:px-4 {{ $item->active ? ' current-menu-item' : '' }}">
+                <a
+                    href="{{ $item->url }}"@if ($item->target) target="{{ $item->target }}" @endif>{{ $item->label }}</a>
+            </li>
+        @endforeach
+    </ul>
+    @endif
     </div>
-  </div>
+    </div>
 </header>

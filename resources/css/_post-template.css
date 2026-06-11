@@ -1,0 +1,48 @@
+.post-template--featured-image {
+  @apply block w-full rounded-sm border border-gray-50;
+}
+
+.post-template--header {
+  @apply mb-8 py-8 lg:pt-12 lg:pb-8 2xl:pt-24;
+}
+
+.post-template--byline {
+  @apply mt-8 mx-auto max-w-content flex flex-row items-center gap-2 text-sm lg:gap-4 lg:text-base;
+}
+
+.post-template--author {
+  @apply flex items-center font-bold text-gray-500 antialiased;
+}
+
+.post-template--author .wp-block-post-author__avatar {
+  @apply mr-2;
+}
+
+.post-template--author p {
+  @apply mt-0! mb-0!;
+}
+
+.post-template--author img {
+  @apply w-6 rounded-full mt-0! mb-0! lg:w-8;
+}
+
+.post-template--author .wp-block-post-author__byline {
+  display: none;
+}
+
+.post-template--title {
+  @apply mx-auto max-w-content mb-6! -mt-0.5! font-serif! text-4xl! font-normal! leading-tight! text-gray-700! lg:text-5xl! lg:leading-tight!;
+}
+
+.post-template--excerpt {
+  @apply mx-auto max-w-content my-0! text-lg! font-semibold! leading-snug! antialiased! lg:text-2xl!;
+}
+
+.post-template--date {
+  @apply text-gray-500;
+}
+
+.post-template--date::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+  @apply mr-4 inline-block text-gray-200 line-through;
+}

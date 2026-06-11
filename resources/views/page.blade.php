@@ -1,9 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app', ['type' => 'index']) @section('content')
+    @include('partials.header')
 
-@section('content')
-@include('partials.header')
-@while(have_posts()) @php(the_post())
-@include('partials.page-header')
-@includeFirst(['partials.content-page', 'partials.content'])
-@endwhile
+    <div class="py-16 page-content prose lg:prose-lg xl:prose-xl max-w-none"> {{ the_content() }}
+    </div>
 @endsection

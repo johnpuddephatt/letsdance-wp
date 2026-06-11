@@ -18,15 +18,20 @@ add_filter("excerpt_more", function () {
 
 add_filter("big_image_size_threshold", "__return_false");
 
+add_filter('render_block', function ($content, $block) {
+    if ($block['blockName'] === 'core/image' && is_single()) {
+        $content = preg_replace(
+            '/class="wp-block-image/',
+            'data-aos data-aos-class="opacity-0 translate-y-16" class="wp-block-image',
+            $content,
+            1
+        );
+    }
+    return $content;
+}, 10, 2);
+
 remove_filter("get_the_excerpt", "wp_trim_excerpt");
 
-add_filter("body_class", function ($classes) {
-    return array_merge($classes, [
-        "min-h-screen",
-        "no-focus-outline",
-        "overflow-x-hidden",
-    ]);
-});
 
 // add_filter( 'wp_calculate_image_sizes', function() {
 //     return 'foo';

@@ -1,0 +1,8 @@
+.wp-block-cover {
+    @apply my-48!;
+}
+
+
+.wp-block-cover:has(p:empty) .wp-block-cover__background {
+    display: none;
+}

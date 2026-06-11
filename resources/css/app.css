@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+@import './_config.css';
+
+@import './_fonts.css';
+@import './_gutenberg.css';
+@import './_page-content.css';
+@import './_animations.css';
+@import './_transitions.css';
+@import './_project-template.css';
+@import './_post-template.css';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+.font-serif, h1 {
+  letter-spacing: 0;
+}
+
+/* #hero-image-slider picture {
+  position: static !important;
+} */
+
+.underline-thin {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.underline-thick,
+.menu-item a {
+  text-decoration: underline;
+  text-decoration-thickness: 0.25em;
+  text-underline-offset: 0.25em;
+  transition: text-decoration 1s ease;
+  text-decoration-color: transparent;
+
+  &:hover {
+    text-decoration-color: #b0eee166;
+  }
+}
+
+.underline-thick--medium {
+  text-decoration-color: #b0eee166;
+
+  &:hover {
+    text-decoration-color: #b0eee1;
+  }
+}
+
+.underline-thick--dark,
+.menu-item.current-menu-item a {
+  text-decoration-color: #b0eee1;
+}
+
+.no-focus-outline a:focus {
+  outline: none !important;
+}
+
+
+.hard-gradient {
+  --tw-gradient-stops: to top left, var(--tw-gradient-from), var(--tw-gradient-from) 50%,
+    var(--tw-gradient-to) 50%, var(--tw-gradient-to);
+  
+}
+
+
+.prose :where(h1):not(:where([class~="not-prose"] *)) {
+  @apply font-serif font-normal;
+}
+
+.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+  all: unset;
+}

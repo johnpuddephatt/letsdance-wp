@@ -1,0 +1,14 @@
+.wp-block-quote,
+.wp-block-pullquote {
+  @apply border-none py-8 text-center lg:py-16;
+}
+
+.wp-block-quote p,
+.wp-block-pullquote p {
+  @apply font-serif text-gray-700 tracking-normal my-6 text-2xl leading-tight antialiased lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight;
+}
+
+.wp-block-quote cite,
+.wp-block-pullquote cite {
+  @apply text-gray-700 text-lg font-semibold normal-case antialiased;
+}

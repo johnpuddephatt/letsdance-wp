@@ -1,0 +1,38 @@
+.page-content > *,
+.page-content .wp-block {
+  max-width: var(--wp--style--global--content-size);
+  margin-inline: auto;
+}
+
+.page-content > * {
+  @apply my-8 lg:my-16;
+}
+
+.page-content > *:first-child {
+  @apply mt-0!;
+}
+
+.alignwide,
+.page-content > .alignwide,
+.alignwide > .wp-block {
+  width: var(--wp--style--global--wide-size);
+  @apply mx-auto max-w-full;
+}
+
+.alignfull,
+.page-content > .alignfull,
+.alignfull > .wp-block {
+  @apply w-screen! max-w-screen! px-0;
+}
+
+.page-content > .alignfull {
+  margin-left: calc(-50vw + 50%);
+}
+
+.alignfull > .alignwide {
+  @apply px-4 md:px-8;
+}
+
+.page-content > .alignfull.wp-block-image img {
+  @apply rounded-none!;
+}

@@ -30,7 +30,7 @@
 
     <div class="ml-auto text-right">
       <a
-        class="inline-block w-8 h-8 transition transform rounded-full lg:w-12 lg:h-12 hover:rotate-90 hard-gradient bg-gradient-to-tr from-blue to-cyan"
+        class="inline-block w-8 h-8 transition transform rounded-full lg:w-12 lg:h-12 hover:rotate-90 hard-gradient bg-linear-to-tr from-blue to-cyan"
         aria-label="Back to home"
         href="/"
       ></a>

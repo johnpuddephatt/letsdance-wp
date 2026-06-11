@@ -1,4 +1,0 @@
-overflow-x-hidden
-min-h-screen
-duration-[3500ms]
-duration-[600ms]
