@@ -1,0 +1,389 @@
+{
+  "__processed__": "This file was generated using Vite",
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "layout": {
+      "contentSize": "56rem",
+      "wideSize": "84rem",
+      "allowEditing": false,
+      "allowCustomContentAndWideSize": false
+    },
+    "appearanceTools": false,
+    "background": {
+      "backgroundImage": false,
+      "backgroundSize": false
+    },
+    "border": {
+      "color": false,
+      "radius": false,
+      "style": false,
+      "width": false,
+      "radiusSizes": [
+        {
+          "name": "sm",
+          "slug": "sm",
+          "size": ".25rem"
+        },
+        {
+          "name": "xl",
+          "slug": "xl",
+          "size": ".75rem"
+        }
+      ]
+    },
+    "color": {
+      "text": false,
+      "background": false,
+      "link": false,
+      "heading": false,
+      "button": false,
+      "caption": false,
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "palette": [
+        {
+          "name": "Red (50)",
+          "slug": "red-50",
+          "color": "oklch(97.1% .013 17.38)"
+        },
+        {
+          "name": "Red (400)",
+          "slug": "red-400",
+          "color": "oklch(70.4% .191 22.216)"
+        },
+        {
+          "name": "Yellow (50)",
+          "slug": "yellow-50",
+          "color": "oklch(98.7% .026 102.212)"
+        },
+        {
+          "name": "Yellow (400)",
+          "slug": "yellow-400",
+          "color": "oklch(85.2% .199 91.936)"
+        },
+        {
+          "name": "Green (50)",
+          "slug": "green-50",
+          "color": "oklch(98.2% .018 155.826)"
+        },
+        {
+          "name": "Green (400)",
+          "slug": "green-400",
+          "color": "oklch(79.2% .209 151.711)"
+        },
+        {
+          "name": "Indigo (50)",
+          "slug": "indigo-50",
+          "color": "oklch(96.2% .018 272.314)"
+        },
+        {
+          "name": "Indigo (400)",
+          "slug": "indigo-400",
+          "color": "oklch(67.3% .182 276.935)"
+        },
+        {
+          "name": "Gray (50)",
+          "slug": "gray-50",
+          "color": "oklch(98.5% .002 247.839)"
+        },
+        {
+          "name": "Gray (200)",
+          "slug": "gray-200",
+          "color": "oklch(92.8% .006 264.531)"
+        },
+        {
+          "name": "Gray (500)",
+          "slug": "gray-500",
+          "color": "oklch(55.1% .027 264.364)"
+        },
+        {
+          "name": "Gray (600)",
+          "slug": "gray-600",
+          "color": "oklch(44.6% .03 256.802)"
+        },
+        {
+          "name": "Gray (700)",
+          "slug": "gray-700",
+          "color": "oklch(37.3% .034 259.733)"
+        },
+        {
+          "name": "Gray (800)",
+          "slug": "gray-800",
+          "color": "oklch(27.8% .033 256.848)"
+        },
+        {
+          "name": "Zinc (500)",
+          "slug": "zinc-500",
+          "color": "oklch(55.2% .016 285.938)"
+        },
+        {
+          "name": "Zinc (600)",
+          "slug": "zinc-600",
+          "color": "oklch(44.2% .017 285.786)"
+        },
+        {
+          "name": "Zinc (800)",
+          "slug": "zinc-800",
+          "color": "oklch(27.4% .006 286.033)"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#000"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#fff"
+        },
+        {
+          "name": "Blue",
+          "slug": "blue",
+          "color": "#3e2dec"
+        },
+        {
+          "name": "Cyan",
+          "slug": "cyan",
+          "color": "#8ff4d7"
+        },
+        {
+          "name": "Sky",
+          "slug": "sky",
+          "color": "#cfebfa"
+        },
+        {
+          "name": "Lilac",
+          "slug": "lilac",
+          "color": "#e0eaff"
+        },
+        {
+          "name": "Faun",
+          "slug": "faun",
+          "color": "#ecdbcc"
+        },
+        {
+          "name": "Gray",
+          "slug": "gray",
+          "color": "#d6d6d6"
+        },
+        {
+          "name": "Yellow",
+          "slug": "yellow",
+          "color": "#fdeea9"
+        },
+        {
+          "name": "Lime",
+          "slug": "lime",
+          "color": "#e1f4ad"
+        },
+        {
+          "name": "Pink",
+          "slug": "pink",
+          "color": "#ffc7b9"
+        },
+        {
+          "name": "Teal",
+          "slug": "teal",
+          "color": "#cae7de"
+        },
+        {
+          "name": "Sky (Dark)",
+          "slug": "sky-dark",
+          "color": "#0e4a6b"
+        },
+        {
+          "name": "Lilac (Dark)",
+          "slug": "lilac-dark",
+          "color": "#252870"
+        },
+        {
+          "name": "Faun (Dark)",
+          "slug": "faun-dark",
+          "color": "#5c3215"
+        },
+        {
+          "name": "Gray (Dark)",
+          "slug": "gray-dark",
+          "color": "#2e2b28"
+        },
+        {
+          "name": "Yellow (Dark)",
+          "slug": "yellow-dark",
+          "color": "#614900"
+        },
+        {
+          "name": "Lime (Dark)",
+          "slug": "lime-dark",
+          "color": "#344a0a"
+        },
+        {
+          "name": "Pink (Dark)",
+          "slug": "pink-dark",
+          "color": "#711e10"
+        },
+        {
+          "name": "Teal (Dark)",
+          "slug": "teal-dark",
+          "color": "#104035"
+        }
+      ]
+    },
+    "dimensions": {
+      "defaultAspectRatios": false,
+      "aspectRatios": [],
+      "minHeight": false
+    },
+    "position": {
+      "sticky": false
+    },
+    "spacing": {
+      "blockGap": false,
+      "margin": false,
+      "padding": false,
+      "units": [
+        "rem"
+      ],
+      "defaultSpacingSizes": false,
+      "customSpacingSize": false,
+      "spacingScale": {}
+    },
+    "styles": {
+      "spacing": {
+        "blockGap": "2rem"
+      }
+    },
+    "shadow": {
+      "defaultPresets": false,
+      "presets": []
+    },
+    "typography": {
+      "customFontSize": false,
+      "defaultFontSizes": false,
+      "textAlign": false,
+      "dropCap": false,
+      "fontStyle": false,
+      "fontWeight": false,
+      "fluid": false,
+      "letterSpacing": false,
+      "lineHeight": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "writingMode": false,
+      "fontSizes": [
+        {
+          "name": "sm",
+          "slug": "sm",
+          "size": ".875rem"
+        },
+        {
+          "name": "base",
+          "slug": "base",
+          "size": "1rem"
+        },
+        {
+          "name": "lg",
+          "slug": "lg",
+          "size": "1.125rem"
+        },
+        {
+          "name": "xl",
+          "slug": "xl",
+          "size": "1.25rem"
+        },
+        {
+          "name": "2xl",
+          "slug": "2xl",
+          "size": "1.5rem"
+        },
+        {
+          "name": "3xl",
+          "slug": "3xl",
+          "size": "1.875rem"
+        },
+        {
+          "name": "4xl",
+          "slug": "4xl",
+          "size": "2.25rem"
+        },
+        {
+          "name": "5xl",
+          "slug": "5xl",
+          "size": "3rem"
+        },
+        {
+          "name": "6xl",
+          "slug": "6xl",
+          "size": "3.75rem"
+        }
+      ],
+      "fontFamilies": [
+        {
+          "name": "sans",
+          "slug": "sans",
+          "fontFamily": "Selvetica Now, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji"
+        },
+        {
+          "name": "serif",
+          "slug": "serif",
+          "fontFamily": "Saison Mix, ui-serif, Georgia, Cambria, Times New Roman, Times, serif"
+        },
+        {
+          "name": "mono",
+          "slug": "mono",
+          "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace"
+        }
+      ]
+    },
+    "useRootPaddingAwareAlignments": false,
+    "blocks": {
+      "core/group": {
+        "color": {
+          "background": true
+        }
+      },
+      "core/columns": {
+        "color": {
+          "background": true
+        }
+      },
+      "core/paragraph": {
+        "color": {
+          "background": true
+        },
+        "typography": {
+          "textAlign": false
+        }
+      },
+      "core/button": {
+        "border": {
+          "radius": false,
+          "width": false
+        },
+        "dimensions": {}
+      },
+      "core/image": {
+        "lightbox": {
+          "allowEditing": true,
+          "enabled": true
+        }
+      },
+      "core/pullquote": {
+        "color": {
+          "background": false
+        },
+        "border": {
+          "color": false,
+          "radius": false,
+          "style": false,
+          "width": false
+        },
+        "dimensions": {}
+      }
+    }
+  }
+}

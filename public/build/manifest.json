@@ -1,0 +1,108 @@
+{
+  "editor.deps.json": {
+    "file": "assets/editor.deps-BXVFLo9I.json",
+    "src": "editor.deps.json"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-AZEnA8QM.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "assets": [
+      "assets/SaisonMix-Medium-D-s1QvSw.woff2",
+      "assets/SaisonMix-MediumItalic-DgS7NUre.woff2",
+      "assets/SelveticaWowText-Medium-jFqqebb6.woff2",
+      "assets/SelveticaWowText-Bold-D-bocyqD.woff2"
+    ]
+  },
+  "resources/css/editor.css": {
+    "file": "assets/editor-DexJYLlk.css",
+    "name": "editor",
+    "names": [
+      "editor.css"
+    ],
+    "src": "resources/css/editor.css",
+    "isEntry": true,
+    "assets": [
+      "assets/SaisonMix-Medium-D-s1QvSw.woff2",
+      "assets/SaisonMix-MediumItalic-DgS7NUre.woff2",
+      "assets/SelveticaWowText-Medium-jFqqebb6.woff2",
+      "assets/SelveticaWowText-Bold-D-bocyqD.woff2"
+    ]
+  },
+  "resources/fonts/Karla-Bold.woff2": {
+    "file": "assets/Karla-Bold-CeFfd0_h.woff2",
+    "src": "resources/fonts/Karla-Bold.woff2"
+  },
+  "resources/fonts/Karla-Regular.woff2": {
+    "file": "assets/Karla-Regular-DgU6q6V8.woff2",
+    "src": "resources/fonts/Karla-Regular.woff2"
+  },
+  "resources/fonts/Miller-Display-Regular.woff2": {
+    "file": "assets/Miller-Display-Regular-DuwwNB5J.woff2",
+    "src": "resources/fonts/Miller-Display-Regular.woff2"
+  },
+  "resources/fonts/SaisonMix-Medium.woff2": {
+    "file": "assets/SaisonMix-Medium-D-s1QvSw.woff2",
+    "src": "resources/fonts/SaisonMix-Medium.woff2"
+  },
+  "resources/fonts/SaisonMix-MediumItalic.woff2": {
+    "file": "assets/SaisonMix-MediumItalic-DgS7NUre.woff2",
+    "src": "resources/fonts/SaisonMix-MediumItalic.woff2"
+  },
+  "resources/fonts/SelveticaWowText-Bold.woff2": {
+    "file": "assets/SelveticaWowText-Bold-D-bocyqD.woff2",
+    "src": "resources/fonts/SelveticaWowText-Bold.woff2"
+  },
+  "resources/fonts/SelveticaWowText-Medium.woff2": {
+    "file": "assets/SelveticaWowText-Medium-jFqqebb6.woff2",
+    "src": "resources/fonts/SelveticaWowText-Medium.woff2"
+  },
+  "resources/images/favicon/android-chrome-192x192.png": {
+    "file": "assets/android-chrome-192x192-BoQjMZN5.png",
+    "src": "resources/images/favicon/android-chrome-192x192.png"
+  },
+  "resources/images/favicon/android-chrome-384x384.png": {
+    "file": "assets/android-chrome-384x384-CkWIY9Tr.png",
+    "src": "resources/images/favicon/android-chrome-384x384.png"
+  },
+  "resources/images/favicon/apple-touch-icon.png": {
+    "file": "assets/apple-touch-icon-6cJTv_GS.png",
+    "src": "resources/images/favicon/apple-touch-icon.png"
+  },
+  "resources/images/favicon/favicon-16x16.png": {
+    "file": "assets/favicon-16x16-BXKZTzq6.png",
+    "src": "resources/images/favicon/favicon-16x16.png"
+  },
+  "resources/images/favicon/favicon-32x32.png": {
+    "file": "assets/favicon-32x32-B_SdS8mU.png",
+    "src": "resources/images/favicon/favicon-32x32.png"
+  },
+  "resources/images/favicon/favicon.ico": {
+    "file": "assets/favicon-DR7fR6yO.ico",
+    "src": "resources/images/favicon/favicon.ico"
+  },
+  "resources/images/missing.gif": {
+    "file": "assets/missing-Dhy-2GwT.gif",
+    "src": "resources/images/missing.gif"
+  },
+  "resources/images/placeholder.png": {
+    "file": "assets/placeholder-DtqwjU6b.png",
+    "src": "resources/images/placeholder.png"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CJqN8iGA.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/editor.js": {
+    "file": "assets/editor-Cc_NsO3w.js",
+    "name": "editor",
+    "src": "resources/js/editor.js",
+    "isEntry": true
+  }
+}
