@@ -6,6 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- Preload the serif so it's cached before navigating away from the homepage (which doesn't use it) --}}
+    <link rel="preload" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/fonts/SaisonMix-Medium.woff2') }}"
+        as="font" type="font/woff2" crossorigin>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">

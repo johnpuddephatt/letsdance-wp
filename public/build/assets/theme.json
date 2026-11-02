@@ -92,6 +92,11 @@
           "color": "oklch(98.5% .002 247.839)"
         },
         {
+          "name": "Gray (100)",
+          "slug": "gray-100",
+          "color": "oklch(96.7% .003 264.542)"
+        },
+        {
           "name": "Gray (200)",
           "slug": "gray-200",
           "color": "oklch(92.8% .006 264.531)"
@@ -325,7 +330,7 @@
         {
           "name": "sans",
           "slug": "sans",
-          "fontFamily": "Selvetica Now, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji"
+          "fontFamily": "Selvetica Wow, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji"
         },
         {
           "name": "serif",
