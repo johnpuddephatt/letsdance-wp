@@ -8,7 +8,7 @@ if (! process.env.APP_URL) {
 }
 
 export default defineConfig({
-  base: '/wp-content/themes/letsdance/public/build/',
+  base: './',
   plugins: [
     tailwindcss(),
 
