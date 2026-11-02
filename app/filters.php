@@ -68,3 +68,6 @@ add_filter(
     },
     99
 );
+
+add_filter('wp_img_tag_add_auto_sizes', '__return_false');
+

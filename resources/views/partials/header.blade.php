@@ -1,7 +1,7 @@
 <header id="site-header"
     @if (isset($is_home) && $is_home) class="bottom-0 left-0 right-0 z-40 transition delay-300 transform portrait:transition-none portrait:absolute portrait:bg-black/60 portrait:text-white"
   @else
-    class="z-40 bg-white" @endif "
+    class="z-40 " @endif "
   :class="{ 'translate-y-full transition-none': $store.siteLoading }"
   role="banner"
 >
@@ -21,9 +21,9 @@
         @if (isset($is_home) && $is_home) @else
           class="hidden md:block" @endif
         >
-          <span> {{ $siteName }}</span>
+          <span class="tracking-tight"> {{ $siteName }}</span>
           <span
-            class="ml-1.5 hidden text-lg font-semibold lowercase leading-none text-gray-500 antialiased lg:inline-block"
+            class="ml-1.5 hidden text-lg font-bold lowercase leading-none text-zinc-500 antialiased lg:inline-block"
             >{{ get_bloginfo('description') }}</span
           >
         </div>
@@ -31,9 +31,9 @@
     </div>
     @php($navigation = \Log1x\Navi\Navi::make()->build('primary_navigation'))
     <div class=>
-             @if ($navigation->isNotEmpty())
+                           @if ($navigation->isNotEmpty())
     <ul
-        class="{{ isset($is_home) && $is_home ? 'portrait:hidden text-gray-600 gap-4 antialiased lg:text-gray-800 font-bold lg:text-lg lowercase m-0 flex z-10 flex-row content-end' : 'text-gray-600 gap-4 antialiased lg:text-gray-800 font-bold text-sm lg:text-lg lowercase m-0 flex z-10 flex-row content-end' }}">
+        class="{{ isset($is_home) && $is_home ? 'portrait:hidden text-zinc-600 gap-4 antialiased lg:text-zinc-800 font-bold lg:text-lg lowercase m-0 flex z-10 flex-row content-end' : 'text-gray-600 gap-4 antialiased lg:text-gray-800 font-bold text-sm lg:text-lg lowercase m-0 flex z-10 flex-row content-end' }}">
         @foreach ($navigation->toArray() as $item)
             <li class="menu-item  block py-4 lg:py-0 lg:px-4 {{ $item->active ? ' current-menu-item' : '' }}">
                 <a

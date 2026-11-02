@@ -10,5 +10,5 @@
 
 .wp-block-quote cite,
 .wp-block-pullquote cite {
-  @apply text-gray-700 text-lg font-semibold normal-case antialiased;
+  @apply text-gray-700 text-lg font-bold normal-case antialiased;
 }

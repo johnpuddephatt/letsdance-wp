@@ -29,7 +29,11 @@ body {
 }
 
 
-.edit-post-visual-editor__post-title-wrapper,
+.edit-post-visual-editor__post-title-wrapper .wp-block-post-title{
+  @apply text-2xl font-bold text-center;
+}
+
+/* .edit-post-visual-editor__post-title-wrapper, */
 .wp-block-post-excerpt__more-text {
   display: none;
 }

@@ -12,3 +12,13 @@
   75% { filter: hue-rotate(270deg); }
   100% { filter: hue-rotate(360deg); }
 }
+
+
+@keyframes huerotationsubtle {
+  0% { filter: hue-rotate(0deg); }
+  25% { filter: hue-rotate(15deg); }
+  50% { filter: hue-rotate(0deg); }
+  75% { filter: hue-rotate(-15deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+

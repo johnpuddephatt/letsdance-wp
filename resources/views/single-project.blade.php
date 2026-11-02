@@ -1,4 +1,4 @@
-@extends('layouts.app', ['type' => 'project'])
+@extends('layouts.app', ['type' => 'project', 'documentClass' => '  bg-linear-180 to-faun'])
 
 @section('content')
     @while (have_posts())
@@ -8,15 +8,21 @@
 
         <article @php(post_class())>
 
-            <div class="container max-w-none">
-                {!! get_the_post_thumbnail(null, '2by1', [
-                    'class' => 'project-template--featured-image rounded-xl block w-full border border-gray-50 max-w-none! ',
-                    'sizes' => '100vw',
-                ]) !!}
-            </div>
+            <div class="container text-center max-w-4xl my-24">
+                <h2 class="font-bold text-zinc-600 text-2xl mb-8">{{ the_title() }}</h2>
 
-            <div class="page-content prose lg:prose-lg xl:prose-xl max-w-none">
-                @php(the_content())
+                <div class="font-serif text-6xl">{{ the_excerpt() }}</div>
+            </div>
+            <div class=" container max-w-none ">
+                <div class="bg-white rounded-xl  shadow-2xl">
+                    {!! get_the_post_thumbnail(null, '2by1', [
+                        'class' => 'project-template--featured-image rounded-t-xl',
+                        'sizes' => '100vw',
+                    ]) !!}
+                    <div class="page-content prose lg:prose-lg xl:prose-xl max-w-none">
+                        @php(the_content())
+                    </div>
+                </div>
             </div>
 
         </article>

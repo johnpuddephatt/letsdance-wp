@@ -9,7 +9,7 @@ Template Name: Simple Template
 <div class="flex flex-col items-start justify-center min-h-screen antialiased text-white simple-wrapper bg-blue ">
   <a class="fixed font-serif text-5xl leading-none transition top-2 right-3 lg:top-8 lg:right-12 opacity-80 focus:outline-white hover:opacity-100"
     aria-label="Back"
-    href="javascript:barba.history.previous ? barba.go(barba.history.previous.url) : barba.go('/')">×</a>
+    href="javascript:history.back()">×</a>
   <div class="container max-w-4xl mt-40 mb-32 duration-300 transform">
     <hr class="w-40 mb-8 border-t-4 border-white ">
     <div

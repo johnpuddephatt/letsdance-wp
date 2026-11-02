@@ -35,7 +35,7 @@
 }
 
 .post-template--excerpt {
-  @apply mx-auto max-w-content my-0! text-lg! font-semibold! leading-snug! antialiased! lg:text-2xl!;
+  @apply mx-auto max-w-content my-0! text-lg! font-bold! leading-snug! antialiased! lg:text-2xl!;
 }
 
 .post-template--date {

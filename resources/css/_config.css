@@ -5,14 +5,36 @@
 @theme {
   --color-blue: #3e2dec;
   --color-cyan: #8ff4d7;
-  --color-pink: #fecdd3;
 
-  --font-sans: Karla, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+
+
+ --color-sky: #cfebfa;
+--color-lilac: #e0eaff; 
+--color-faun: #ecdbcc;
+--color-gray: #d6d6d6;
+--color-yellow: #fdeea9;
+--color-lime: #e1f4ad;
+--color-pink: #ffc7b9;
+--color-teal: #cae7de;
+
+
+  --color-sky-dark: #0e4a6b;
+  --color-lilac-dark: #252870;
+  --color-faun-dark: #5c3215;
+  --color-gray-dark: #2e2b28;
+  --color-yellow-dark: #614900;
+  --color-lime-dark: #344a0a;
+  --color-pink-dark: #711e10;
+  --color-teal-dark: #104035;
+
+
+  --font-sans: "Selvetica Now", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Miller Display", ui-serif, Georgia, Cambria, "Times New Roman",
+  --font-serif: "Saison Mix", ui-serif, Georgia, Cambria, "Times New Roman",
     Times, serif;
 
   --animate-rotate-hue: huerotation 2s linear infinite;
+  --animate-rotate-hue-subtle: huerotationsubtle 3.5s linear infinite
 }
 
 @utility container {

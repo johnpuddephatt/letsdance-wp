@@ -1,100 +1,47 @@
 'use strict';
-var simpleslider = require('simple-slider');
 import Alpine from 'alpinejs';
-window.Alpine = Alpine;
+import initSlider from './slider';
 
-export default function (config) {
-  if (config.withLoadingScreen) {
-    Alpine.store('siteLoading', true);
-  } else {
-    let container = document.querySelector(
-      window.innerWidth > window.innerHeight
-        ? '#hero-image-slider'
-        : '#hero-image-slider-portrait',
-    );
-    container.classList.add('opacity-0');
+export default function ({ withLoadingScreen }) {
+  const sliders = Array.from(document.querySelectorAll('[data-slider]'));
+  if (sliders.length === 0) return;
 
-    for (var i = container.children.length; i >= 0; i--) {
-      container.appendChild(container.children[(Math.random() * i) | 0]);
-    }
+  const instances = new Map(sliders.map((c) => [c, initSlider(c)]));
+
+  if (!withLoadingScreen) {
+    sliders.forEach((c) => {
+      c.addEventListener('slider:ready', () => instances.get(c).start(100));
+    });
+    return;
   }
 
-  document.addEventListener('keyup', (evt) => {
-    if (event.key === 'Escape') {
-      Alpine.store('siteLoading', false);
-    }
+  Alpine.store('siteLoading', true);
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape') Alpine.store('siteLoading', false);
   });
 
-  var sliderImagesLoaded = 0;
+  let readyCount = 0;
+  let timerFired = false;
 
-  let sliderImages = document.querySelectorAll(
-    window.innerWidth > window.innerHeight
-      ? '#hero-image-slider img'
-      : '#hero-image-slider-portrait img',
-  );
-  let ldLoaded = false;
+  function maybeOpenSite() {
+    if (readyCount < sliders.length || !timerFired) return;
+    Alpine.store('siteLoading', false);
+    document.documentElement.classList.remove(
+      'overflow-hidden',
+      'pointer-events-none',
+    );
+    sliders.forEach((c) => instances.get(c).start(2000));
+  }
 
-  let startSlideshowIfAllLoaded = function () {
-    if (sliderImagesLoaded >= sliderImages.length && ldLoaded == false) {
-      ldLoaded = true;
-      if (config.withLoadingScreen) {
-        setTimeout(() => {
-          Alpine.store('siteLoading', false);
+  setTimeout(() => {
+    timerFired = true;
+    maybeOpenSite();
+  }, 4000);
 
-          document.documentElement.classList.remove(
-            'overflow-hidden',
-            'pointer-events-none',
-          );
-          startSlideshow(config);
-        }, 4000);
-      } else {
-        startSlideshow(config);
-      }
-    }
-  };
-
-  sliderImages.forEach((image) => {
-    if (image.complete) {
-      sliderImagesLoaded++;
-      startSlideshowIfAllLoaded();
-    } else {
-      image.addEventListener('load', () => {
-        sliderImagesLoaded++;
-        startSlideshowIfAllLoaded();
-      });
-    }
+  sliders.forEach((c) => {
+    c.addEventListener('slider:ready', () => {
+      readyCount++;
+      maybeOpenSite();
+    });
   });
-}
-
-function startSlideshow(config) {
-  var container = document.getElementById(
-    window.innerWidth > window.innerHeight
-      ? 'hero-image-slider'
-      : 'hero-image-slider-portrait',
-  );
-
-  container.classList.add('transition');
-  container.classList.remove('opacity-0');
-
-  var slider = simpleslider.getSlider({
-    container: container,
-    prop: 'opacity',
-    init: 0,
-    show: 1,
-    end: 0,
-    unit: '',
-    duration: 1.5,
-    delay: 3,
-    class: {
-      slide: 'inset-0',
-    },
-  });
-
-  slider.pause();
-  setTimeout(
-    () => {
-      slider.resume();
-    },
-    config.withLoadingScreen ? 2000 : 0,
-  );
 }
